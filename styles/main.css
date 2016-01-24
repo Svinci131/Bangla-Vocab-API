@@ -1,0 +1,19 @@
+/* CURRENTLY IN: styles/main.css */
+.hidden {
+	display:none;
+}
+
+div {
+	border: 1px solid black;
+}
+.container {
+	width:300px;
+	position: absolute;
+	left:200px;
+	top:40px;
+}
+
+.container>div {
+	width:100%;
+	text-align: right;
+} 
