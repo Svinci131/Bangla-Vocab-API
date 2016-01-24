@@ -1,12 +1,13 @@
 var request = require("request"),
     cheerio = require("cheerio"),
     fs = require('fs'),
-    url="http://mylanguages.org/multimedia/bengali_audio_colors.php"
+    obj = {};
 
+var url= "http://mylanguages.org/multimedia/bengali_audio_colors.php";
 var group = url.split("_");
     group = group[group.length-1].split(".")[0]
 
-var obj = {};
+
 
 request(url, function (error, response, body) {
     if (!error) {
@@ -17,15 +18,29 @@ request(url, function (error, response, body) {
                 var english = el.find('img').attr('alt'); 
                 var bLetters = el.find('b').html();
                 var all = el.find('td').text();
+                var allEIndx = english.length; 
+                var bangla = all.substring (allEIndx)
+                var bLetterIndex = null;
+
+                for (var i = 0; i < bangla.length; i++){
+                  if (bangla.charCodeAt(i) > 123){
+                    var bLetterIndex = i; 
+                    break;
+                  }
+                }
+                bangla = bangla.substring (0, bLetterIndex)
+
                 if ( typeof obj[group] === "undefined") {
                   obj[group] = {};
                 }
 
-                obj[group][english] = {"english": english,
-                                        "type": group, 
-                                        "bLetters": bLetters
+                obj[group][english] = { 
+                  "english": english,
+                  "type": group, 
+                  "bangla": bangla,
+                  "bLetters": bLetters,
+                  "index":idx
                 };
-                //console.log(all);
       });
       
       console.log(obj)
