@@ -4,9 +4,13 @@ var request = require("request"),
     Q       = require('q'),
     obj     = {};
 
+
+
 var url   = "http://mylanguages.org/learn_bengali.php";
 //var test  = "http://mylanguages.org/multimedia/bengali_audio_colors.php";
 
+  //Returns a "deferred" object with a:
+  //promise property,resolve(value) method,reject(reason) method, notify(value) method, makeNodeResolver() method
 
 var requestPromise = function( url ) {
   var d = Q.defer();
@@ -23,7 +27,7 @@ var requestPromise = function( url ) {
   return d.promise;
 }
 
-console.log( 'Fetching: ' + url + '\n' );
+//console.log( 'Fetching: ' + url + '\n' );
 requestPromise( url )
 .then(function(body){
   var $ = cheerio.load(body),
@@ -32,7 +36,7 @@ requestPromise( url )
       el = $(el);
       if (idx >= 8 && idx<=33){
         // popObj( el.attr('href'), idx, 32 );
-        console.log( 'About to fetch: ' + el.attr('href') + '\n' );
+        //console.log( 'About to fetch: ' + el.attr('href') + '\n' );
         arr.push( fetchData( el.attr('href') ) );
       }
   });
@@ -40,10 +44,11 @@ requestPromise( url )
   return Q.all( arr );
 })
 .then(function(){
-  console.log( 'writing to file...' );
-  fs.writeFile('data.json', JSON.stringify(obj), function( err ) {
-    console.log('done!');
-  });
+// //   // console.log( 'writing to file...' );
+// //   // fs.writeFile('data.json', JSON.stringify(obj), function( err ) {
+// //   //   console.log('done!');
+// //   // });
+    
 })
 .fail(function(err){
 
@@ -53,7 +58,7 @@ function fetchData( url ) {
   var d = Q.defer();
 
   requestPromise( url ).then(function(body) {
-    console.log( 'Found: ' + url + '\n' );
+    //console.log( 'Found: ' + url + '\n' );
     var group = url.split("_");
     group = group[group.length-1].split(".")[0]
     var $ = cheerio.load(body),
@@ -96,6 +101,8 @@ function fetchData( url ) {
 
   return d.promise;
 }
+//module.exports = obj;
+//request promise is a function that updates and object 
 
 /*
 request(url, function (error, response, body) {
