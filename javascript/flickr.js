@@ -9,10 +9,14 @@ var method 		= 'flickr.photos.search';
 
 for ( var cat in obj ) {
 	for ( var word in obj[cat] ){
+		//push the words to an array or maybe push word:cat to and array 
 		var wordObj = obj[cat][word]
 		search(word, wordObj);
+		//push them 
 	}
 }
+
+//arr.foreach make call then resolve 
 
 function search( key, obj ) {
 	request
@@ -47,7 +51,7 @@ function search( key, obj ) {
 					obj["img"] = img
 					console.log(obj.img)
 					//when they're all resolved 
-					
+
 				}
 			  	
 			}

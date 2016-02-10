@@ -14,7 +14,7 @@ var url   = "http://mylanguages.org/learn_bengali.php";
 
 var requestPromise = function( url ) {
   var d = Q.defer();
-
+  
   request( url, function( err, response, body ){
     if ( err ) {
       d.reject( err );
@@ -54,6 +54,11 @@ requestPromise( url )
 
 });
 
+//runs function requestPromise on URL 
+  //gets each link in the scraped site 
+  //runs fetched data on it and pushes it to an array 
+
+//then
 function fetchData( url ) {
   var d = Q.defer();
 
