@@ -45,12 +45,12 @@ function objPromise() {
 }
 
 objPromise().then (function(response){
-	fs.writeFile('dataWimage.json', JSON.stringify(response), function( err ) {
+	fs.writeFile('dataWimagesNEW.json', JSON.stringify(obj), function( err ) {
     	console.log(err);
   	});
-  	fs.writeFile('hello.json', "hello", function( err ) {
-    	console.log(err);
-  	});
+  	// fs.writeFile('hello.json', "hello", function( err ) {
+   //  	console.log(err);
+  	// });
 }); 
 
 

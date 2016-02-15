@@ -11,7 +11,7 @@ var url   = "http://mylanguages.org/learn_bengali.php";
 
   //Returns a "deferred" object with a:
   //promise property,resolve(value) method,reject(reason) method, notify(value) method, makeNodeResolver() method
-
+//
 var requestPromise = function( url ) {
   var d = Q.defer();
   
@@ -45,9 +45,9 @@ requestPromise( url )
 })
 .then(function(){
 // //   // console.log( 'writing to file...' );
-// //   // fs.writeFile('data.json', JSON.stringify(obj), function( err ) {
-// //   //   console.log('done!');
-// //   // });
+  fs.writeFile('data.json', JSON.stringify(obj), function( err ) {
+    console.log('done!');
+  });
     
 })
 .fail(function(err){
