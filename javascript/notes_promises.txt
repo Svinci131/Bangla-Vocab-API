@@ -18,9 +18,104 @@ for ( var cat in obj ) {
 
 	}
 }
+//TEST
+// $.get( 'url', {
+// 	data:1
+// }, function(payload){
+// 	// this gets called once data is back
+// });
 
-//function that makes a request and 
-//returns resolve(callback)
+// function get(url, data, callback) {
+// 	var xhr = new XMLHTTPRequest();
+// 	xhr.addEventListener('load', function( response ) {
+// 		if ( callback ) { callback( response ); }
+// 	})
+// 	xhr.open( 'GET', url );
+// 	xhr.send();
+// }
+
+// $.get('url', {
+// 	data: 1
+// })
+// .then(function(data){
+// 	// this gets called once data is back
+// })
+// .fail(function(err){
+// 	// this gets called if data has failed to get back
+// })
+
+// function get( url, data ) {
+// 	return new Promise(function(resolve, reject){
+// 		var xhr = new XMLHTTPRequest();
+// 		xhr.addEventListener('load', function(response){
+// 			resolve( response );
+// 		});
+// 		xhr.addEventListener('error', function(err){
+// 			reject( err );
+// 		})
+// 		xhr.open( 'GET', url );
+// 		xhr.send();
+// 	});
+// }
+
+
+
+///define promise obj
+function ajax2( url, type, data, contentType ) {
+	return new Promise(function(resolve, reject){
+		var xhr = new XMLHttpRequest();
+		xhr.addEventListener('load', function(){
+			resolve( this.responseText );
+		});
+		xhr.addEventListener('error', function() {
+			reject(this.responseText);
+		});
+		xhr.open( type || "GET", url );
+
+		if ( contentType ) {
+			xhr.setRequestHeader("Content-type", contentType);
+		}
+		else {
+			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
+		}
+
+		xhr.send( data );
+	});
+}
+
+var ITER = 0;
+function cheater( num, start ) {
+	console.log('starting!', num, start)
+	ajax2('http://faceoff.labs.honey.is/matchup')
+	.then(function(data) { 
+		console.log( JSON.parse(data) ) 
+		var answer = JSON.parse( data ).answer;
+		console.log( answer );
+		return ajax2(
+			'http://faceoff.labs.honey.is/matchup',
+			'POST', 
+			"answer="+answer, 
+			"application/x-www-form-urlencoded; charset=UTF-8"
+		).then(function(data) {
+			console.log( data );
+			if ( typeof start === "undefined" ) {
+				start = 0;
+			}
+			if ( start < num ) {
+				++start;
+				setTimeout(function(){
+					cheater( num, start );
+				}, 250);
+			}
+			else {
+				console.log('DONE');
+			}
+			
+		});
+	})
+}
+
+//when all of these are resolved return object 
 function requestAsPromise( url, queryData ) {
 	return new Promise(function(resolve, reject){
 		request
@@ -31,11 +126,12 @@ function requestAsPromise( url, queryData ) {
 					reject( err );
 					return;
 				}
-				//resolve? 
+
 				resolve( response );
 			});
 	});
 }
+
 
 function search( key, obj ) {
 	requestAsPromise( API_BASE, {
@@ -58,13 +154,12 @@ function search( key, obj ) {
 			var img = 'https://farm'+farmID+'.staticflickr.com/'+server+'/'+id+'_'+secret+'.jpg';
 			var div = "<div style='border: 1px solid black'>"+img+"<p>"+title+"</p><p><em>"+id+"</em></p></div>"
 			
-			obj["img"] = img
-			// 	//when they're alll resolved?
-			// if (key === "yellow"){
-			// 	obj["img"] = img
-			// 	console.log(obj.img)
-			
-			// }
+			if (key === "yellow"){
+				obj["img"] = img
+				console.log(obj.img)
+				//when they're all resolved 
+
+			}
 
 		return new Promise(function(resolve, reject){
 			resolve(obj);

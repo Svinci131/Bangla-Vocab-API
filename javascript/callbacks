@@ -1,0 +1,28 @@
+http.createServer(function(request, response))
+/////THE REQUEST AND RESPONSE ARE CALLBACKS//// {
+	
+}
+
+
+fs.readFile ('etc/host', function () {
+////the second function is the call back //////
+
+//curl command line?
+
+http.creatServer (function(request, responese {
+	response.writeHead (200)- status check 
+	
+}
+));
+the first time node goes through this code it registers events 
+KNOWN EVENTS (request, connnection, cose )
+		- in this case the request event 
+
+- When it's done executing it goes into an event loop
+
+	- checking for a know event
+
+
+
+
+---
