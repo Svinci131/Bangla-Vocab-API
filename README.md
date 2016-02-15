@@ -21,37 +21,44 @@ http://www.bdword.com/
 
 
 
-Step One- 
-	*compile a list of words as an object
-		var  words = {
+Step One- Vocab Object*compile a list of words as an JSONobject
+	Ex.	var  words = {
 					body: {
 							head: {
 								english: head,
 								bangla: matha,
 								bangla-alphabet: মত
-								photo: ....
 							}
 							hair: {
 								english: head,
-								bangla: chul,
-								bangla-alphabet: চুল্
-								photo: ....
 							}
 					}
 	}
-	*write a json file  complete
 
-Step Two- 
+Step Two- Image Object
 	*Do a flickr search for each word in the object 
 	and add the top four images to the object 
 
+	To Do: 
+		1. Download all the images
+		2. Get three or four images
 
-	1. download all the images or save as links?? Which is faster
-	2. for each wait for it to have finished makig the request then do next
-
-Step Three- 
+Step Three-
 	* Create buttons for each category 
-	* Onclick render the photos and the english word 
+		** Create new Obj from json file
+		** Create new Obj that's just the cat
+	* Onclick Start Game 
+
+
+	* Start with the level one questions
+		**Get a Random Obj from the 
+	* show them the english and bangla-ask them to type it out 
+
+	* If they get it right - remove 
+
+
+
+	render the photos and the english word 
 	*level one- 
 		* show english and bangla 
 	*level two-

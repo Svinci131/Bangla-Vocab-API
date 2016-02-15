@@ -1,21 +1,23 @@
-var fs = require('fs'),
-   
-// fs.writeFile('helloworld.txt', 'Hello World!', function (err) {
-//   if (err) return console.log(err);
-//   console.log('Hello World > helloworld.txt');
+// var express = require('express');
+// var serveStatic = require('serve-static');
+// var http = require('http');
+// var app = express();
+// var PORT = 9001;
+
+// app.set('port', PORT);
+
+// app.use(serveStatic( '../static' ));
+
+// http.createServer(app).listen(app.get('port'), 'localhost', function(){
+//   console.log("Express server listening on port " + app.get('port'));
 // });
 
+var path = require('path');
+var express = require('express')
+var serveStatic = require('serve-static')
 
+var app = express()
 
-var http = require('http');
-
-//console.log(data)
-var server = http.createServer(function(request,response){
-	 response.writeHead(200, {"Content-Type": "text/json"});
-	 fs.readFile('data.json', 'utf8', function(err,data){
-	 	response.write( data );
-	 	response.end();
-	 })
-});
-
-server.listen(8080);
+app.use(serveStatic('../static'))
+// app.use(serveStatic(__dirname + '/public'))
+app.listen(3000)
