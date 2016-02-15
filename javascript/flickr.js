@@ -3,6 +3,7 @@ var request 	= require("superagent");
 var API_KEY 	= "fe03e6cf12d2f0ad16e81c15cc926317";
 var API_BASE 	= 'https://api.flickr.com/services/rest/';
 var method 		= 'flickr.photos.search',
+    	fs      = require('fs'),
  		Q       = require('q');
 
 var last;
@@ -10,7 +11,6 @@ var last;
 oLength = 0;
 	
 function objPromise() {
-	//create a new promise that resolves after map is finished 
 	var arr = [];
 	return new Promise(function(resolve, reject) {
 		for (cat in obj) {
@@ -27,7 +27,7 @@ function objPromise() {
 		arr.reduce(function(promise, curr){
 			return promise.then(function(val) {
 				// console.log( curr );
-				console.log( val );
+				// console.log( val );
 				if ( val === 1 ) {
 					return search( curr.word, curr.wordObj );
 				}
@@ -45,33 +45,13 @@ function objPromise() {
 }
 
 objPromise().then (function(response){
-	console.log(response)
-})
-
-// Promise.all(objPromise()).then (function(response){
-// 	console.log(response)
-// })
-
-// map (function (cat) {
-// 	var cLength = Object.keys(obj[cat]).length
-// 	oLength += cLength
-
-// 	//Olength = obj[cat][Object.keys(obj[cat])[Object.keys(obj[cat]).length - 1]]
-// 	Object.keys(obj[cat]).map (function (word) {
-// 		var wordObj = obj[cat][word]
-// 		// search(word, wordObj)
-// 		//for each push a promise obj that resolves when that wordObj has been updated
-		
-// 		)
-// 	});
-// });
-
-
-//it's starting this then it's doing all of this 
-// Promise.all(arr).then(function(values){
-// 	console.log(oLength, arr.length)
-//  //console.log(values)
-// });
+	fs.writeFile('dataWimage.json', JSON.stringify(response), function( err ) {
+    	console.log(err);
+  	});
+  	fs.writeFile('hello.json', "hello", function( err ) {
+    	console.log(err);
+  	});
+}); 
 
 
 //function that makes a request and 
@@ -83,19 +63,13 @@ function requestAsPromise( url, queryData ) {
 			.query( queryData )
 			.end(function(err, response){
 				if ( err ) {
-					//comes with the q territory 
 					reject( err );
 					return;
 				}
-				//resolve? 
-				// console.log(response)
 				resolve( response );
 			});
 	});
 }
-
-
-
 
 //creating a function that 
 function search( word, wordObj ) {
@@ -110,12 +84,13 @@ function search( word, wordObj ) {
 		nojsoncallback: 1,
 		sort: 'relevance'
 	})
-	//that has the then prop 
-	//which we ust to say parse the response and use is it update the word object 
+	
 	.then(function(response){
 		var data = JSON.parse( response.text );
 			data = data.photos.photo; 
+
 		if (typeof data[5] !== "undefined") {
+
 			var title = data[5].title;
 			var id = data[5].id;
 			var server = data[5].server;
@@ -132,13 +107,4 @@ function search( word, wordObj ) {
 		});  
 
 	})
-	// .then(function(){
-	// 	// return new Promise(function(resolve, reject){
-	// 	// 	resolve(wordObj);
-	// 	// });  
-		
-	// });
 }
-
-// obj["colors"]["yellow"]["foo"] ="foo"
-// console.log(obj.colors.yellow.img)
