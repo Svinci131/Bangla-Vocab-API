@@ -1,5 +1,3 @@
-
-
 var p1 = new Promise(function(resolve, reject) {
   //resolve("Success!");//ends here says Sucess!
   //make a call when it comes back it just magically knows then it resolves 
@@ -16,8 +14,6 @@ p1.then(function(value) {
 }, function(reason) {
   console.log(reason); // Error!
 });
-
-
 
 
 var p1 = new Promise(function(resolve, reject) {

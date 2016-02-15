@@ -32,23 +32,31 @@ function requestAsPromise( url, queryData ) {
 					return;
 				}
 				//resolve? 
+				// console.log(response)
 				resolve( response );
 			});
 	});
 }
 
-function search( key, obj ) {
+//creating a function that 
+function search( word, wordObj ) {
+	//calls the function that returns a 
+	//takes in url and query data 
+	//makes a promise object 
 	requestAsPromise( API_BASE, {
 		method: method,
 		api_key: API_KEY,
-		text: key,
+		text: word,
 		format: 'json',
 		nojsoncallback: 1,
 		sort: 'relevance'
 	})
+	//that has the then prop 
+	//which we ust to say parse the response and use is it update the word object 
 	.then(function(response){
 		var data = JSON.parse( response.text );
 			data = data.photos.photo; 
+			
 		if (typeof data[5] !== "undefined") {
 			var title = data[5].title;
 			var id = data[5].id;
@@ -58,63 +66,19 @@ function search( key, obj ) {
 			var img = 'https://farm'+farmID+'.staticflickr.com/'+server+'/'+id+'_'+secret+'.jpg';
 			var div = "<div style='border: 1px solid black'>"+img+"<p>"+title+"</p><p><em>"+id+"</em></p></div>"
 			
-			obj["img"] = img
-			// 	//when they're alll resolved?
-			// if (key === "yellow"){
-			// 	obj["img"] = img
-			// 	console.log(obj.img)
-			
-			// }
-
+			wordObj["img"] = img;
+		}
 		return new Promise(function(resolve, reject){
-			resolve(obj);
+			resolve(wordObj);
 		});
 	})
-	.then(function(obj){
+	.then(function(wordObj){
+		if (wordObj.english === "yellow") {
+			console.log (obj)
+		}
 		// i'll be here now
 		// this gets called after all that logic above
 	});
-
-
-	request
-	  	.get(API_BASE)
-
-		.query({
-			method: method,
-			api_key: API_KEY,
-			text: key,
-			format: 'json',
-			nojsoncallback: 1,
-			sort: 'relevance'
-		})
-
-		.end(function(err, response){
-
-			if ( err ) {
-				return;
-			}
-			var data = JSON.parse( response.text );
-				data = data.photos.photo; 
-			if (typeof data[5] !== "undefined") {
-				var title = data[5].title;
-				var id = data[5].id;
-				var server = data[5].server;
-				var secret = data[5].secret;
-				var farmID = data[5].farm;
-				var img = 'https://farm'+farmID+'.staticflickr.com/'+server+'/'+id+'_'+secret+'.jpg';
-				var div = "<div style='border: 1px solid black'>"+img+"<p>"+title+"</p><p><em>"+id+"</em></p></div>"
-				
-				if (key === "yellow"){
-					obj["img"] = img
-					console.log(obj.img)
-					//when they're all resolved 
-
-				}
-			  	
-			}
-			//console.log("HERE",word)
-				//console.log(data[0].title)
-		});	
 }
 // obj["colors"]["yellow"]["foo"] ="foo"
 // console.log(obj.colors.yellow.img)
