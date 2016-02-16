@@ -19031,23 +19031,115 @@ module.exports = warning;
 module.exports = require('./lib/React');
 
 },{"./lib/React":26}],159:[function(require,module,exports){
+module.exports={"colors":{"colors":{"english":"colors","type":"colors","bangla":"rong","bLetters":"&#x9B0;&#x993;&#x9A8;&#x9CD;&#x997;&#x9CD;","index":0,"img":"https://farm3.staticflickr.com/2946/15485876632_19370d9f2c.jpg"},"white":{"english":"white","type":"colors","bangla":"sada rong","bLetters":"&#x9B8;&#x9A1; &#x9B0;&#x993;&#x9A8;&#x9CD;&#x997;&#x9CD;","index":1,"img":"https://farm6.staticflickr.com/5142/5689342303_1012201851.jpg"},"blue":{"english":"blue","type":"colors","bangla":"nil rong","bLetters":"&#x9A8;&#x9BF;&#x9B2;&#x9CD; &#x9B0;&#x993;&#x9A8;&#x9CD;&#x997;&#x9CD;","index":2,"img":"https://farm6.staticflickr.com/5203/5250596293_804c72e051.jpg"},"brown":{"english":"brown","type":"colors","bangla":"badami rong","bLetters":"&#x9AC;&#x9A1;&#x9AE;&#x9BF; &#x9B0;&#x993;&#x9A8;&#x9CD;&#x997;&#x9CD;","index":3,"img":"https://farm3.staticflickr.com/2806/11407821456_bb7706e7bf.jpg"},"red":{"english":"red","type":"colors","bangla":"lal rong","bLetters":"&#x9B2;&#x9B2;&#x9CD; &#x9B0;&#x993;&#x9A8;&#x9CD;&#x997;&#x9CD;","index":4,"img":"https://farm8.staticflickr.com/7612/17116402271_906983409d.jpg"},"yellow":{"english":"yellow","type":"colors","bangla":"holud rong","bLetters":"&#x9B9;&#x993;&#x9B2;&#x9C1;&#x9A1;&#x9CD; &#x9B0;&#x993;&#x9A8;&#x9CD;&#x997;&#x9CD;","index":5,"img":"https://farm3.staticflickr.com/2896/13942617067_d5829e849c.jpg"}},"objects":{"objects":{"english":"objects","type":"objects","bangla":"uddesso ","bLetters":"&#x989;&#x9A1;&#x9CD;&#x9A1;&#x98F;&#x9B8;&#x9CD;&#x9B8;&#x993; ","index":0,"img":"https://farm6.staticflickr.com/5188/5669403901_96fa5986d8.jpg"},"soap":{"english":"soap","type":"objects","bangla":"saban","bLetters":"&#x9B8;&#x9AC;&#x9A8;&#x9CD;","index":1,"img":"https://farm7.staticflickr.com/6136/6032583716_1243d733bb.jpg"},"toothbrush":{"english":"toothbrush","type":"objects","bangla":"dat majar brash","bLetters":"&#x9A1;&#x99F;&#x9CD; &#x9AE;&#x99C;&#x9B0;&#x9CD; &#x9AC;&#x9CD;&#x9B0;&#x9B6;&#x9CD;","index":2,"img":"https://farm4.staticflickr.com/3417/3304226162_d0677fffec.jpg"},"bed":{"english":"bed","type":"objects","bangla":"bisana","bLetters":"&#x9AC;&#x9BF;&#x9B8;&#x9A8;","index":3,"img":"https://farm4.staticflickr.com/3057/2884135028_81da01934a.jpg"},"table":{"english":"table","type":"objects","bangla":"table, lomba chouki, ","bLetters":"&#x99F;&#x9AC;&#x9CD;&#x9B2;&#x98F;, &#x9B2;&#x993;&#x9AE;&#x9CD;&#x9AC; &#x99A;&#x993;&#x989;&#x995;&#x9BF;, ","index":4,"img":"https://farm2.staticflickr.com/1382/3264392803_f5d3618ccf.jpg"},"fork":{"english":"fork","type":"objects","bangla":"kata chamach","bLetters":"&#x995;&#x99F; &#x99A;&#x9AE;&#x99A;&#x9CD;","index":5,"img":"https://farm3.staticflickr.com/2237/2909842952_0641cd8f91.jpg"}},"body":{"head":{"english":"head","type":"body","bangla":"matha","bLetters":"&#x9AE;&#x9A4;","index":0,"img":"https://farm1.staticflickr.com/103/309957939_1e6a4df77a.jpg"},"hair":{"english":"hair","type":"body","bangla":"chul","bLetters":"&#x99A;&#x9C1;&#x9B2;&#x9CD;","index":1,"img":"https://farm3.staticflickr.com/2898/14482402978_c7c5acd285.jpg"},"ear":{"english":"ear","type":"body","bangla":"kan","bLetters":"&#x995;&#x9A8;&#x9CD;","index":2,"img":"https://farm8.staticflickr.com/7363/16355451372_faa77d1ce5.jpg"},"mouth":{"english":"mouth","type":"body","bangla":"mukh","bLetters":"&#x9AE;&#x9C1;&#x996;&#x9CD;","index":3,"img":"https://farm5.staticflickr.com/4030/4230136300_96bc2b973f.jpg"},"arm":{"english":"arm","type":"body","bangla":"bahu","bLetters":"&#x9AC;&#x9B9;&#x9C1;","index":4,"img":"https://farm9.staticflickr.com/8540/8688054356_1d6e33ee95.jpg"},"heart":{"english":"heart","type":"body","bangla":"hridoy","bLetters":"&#x9B9;&#x9CD;&#x9B0;&#x9BF;&#x9A1;&#x993;&#x9AF;&#x9CD;","index":5,"img":"https://farm9.staticflickr.com/8581/16595469825_c186a40521.jpg"},"leg":{"english":"leg","type":"body","bangla":"pa","bLetters":"&#x9AA;","index":6,"img":"https://farm4.staticflickr.com/3953/15112869174_fc40040d35.jpg"}},"food":{"Food":{"english":"Food","type":"food","bangla":"khabar","bLetters":"&#x996;&#x9AC;&#x9B0;&#x9CD;","index":0,"img":"https://farm9.staticflickr.com/8383/8467080293_fe90204219.jpg"},"cheese":{"english":"cheese","type":"food","bangla":"ponir","bLetters":"&#x9AA;&#x993;&#x9A8;&#x9BF;&#x9B0;&#x9CD;","index":1,"img":"https://farm4.staticflickr.com/3484/3997976022_1d37152719.jpg"},"chicken":{"english":"chicken","type":"food","bangla":"murgir bassa","bLetters":"&#x9AE;&#x9C1;&#x9B0;&#x9CD;&#x997;&#x9BF;&#x9B0;&#x9CD; &#x9AC;&#x9B8;&#x9CD;&#x9B8;","index":2,"img":"https://farm8.staticflickr.com/7107/7739851366_6c24207ba7.jpg"},"sandwich":{"english":"sandwich","type":"food","bangla":"fast food jatio khabarf","bLetters":"f&#x985;&#x9B8;&#x9CD;&#x99F;&#x9CD; f&#x98A;&#x9A1;&#x9CD; &#x99C;&#x99F;&#x9BF;&#x993; &#x996;&#x9AC;&#x9B0;&#x9CD;","index":3,"img":"https://farm4.staticflickr.com/3270/2312382751_7fa943dbef.jpg"},"salt":{"english":"salt","type":"food","bangla":"lobon","bLetters":"&#x9B2;&#x993;&#x9AC;&#x993;&#x9A8;&#x9CD;","index":4,"img":"https://farm4.staticflickr.com/3109/2850748902_74a166fe69.jpg"},"fruit":{"english":"fruit","type":"food","bangla":"folf","bLetters":"f&#x993;&#x9B2;&#x9CD;","index":5,"img":"https://farm6.staticflickr.com/5117/5818218615_c4ce37a65a.jpg"}},"numbers":{"one":{"english":"one","type":"numbers","bangla":"ak, akmatro","bLetters":"&#x985;&#x995;&#x9CD;, &#x985;&#x995;&#x9CD;&#x9AE;&#x99F;&#x9CD;&#x9B0;&#x993;","index":0,"img":"https://farm4.staticflickr.com/3685/18909567262_bc0638a5c0.jpg"},"three":{"english":"three","type":"numbers","bangla":"tin","bLetters":"&#x99F;&#x9BF;&#x9A8;&#x9CD;","index":1,"img":"https://farm8.staticflickr.com/7577/15977871572_e74b17ce97.jpg"},"five":{"english":"five","type":"numbers","bangla":"pnach","bLetters":"&#x9AA;&#x9CD;&#x9A8;&#x99A;&#x9CD;","index":2,"img":"https://farm9.staticflickr.com/8898/17522943301_39bd992186.jpg"},"seven":{"english":"seven","type":"numbers","bangla":"sat","bLetters":"&#x9B8;&#x99F;&#x9CD;","index":3,"img":"https://farm7.staticflickr.com/6071/6135970978_5b6596544e.jpg"},"nine":{"english":"nine","type":"numbers","bangla":"noy","bLetters":"&#x9A8;&#x993;&#x9AF;&#x9CD;","index":4,"img":"https://farm3.staticflickr.com/2855/11036426853_5113ea8524.jpg"}},"places":{"pharmacy":{"english":"pharmacy","type":"places","bangla":"ousodher dokan","bLetters":"&#x993;&#x989;&#x9B8;&#x993;&#x9A6;&#x98F;&#x9B0;&#x9CD; &#x9A1;&#x993;&#x995;&#x9A8;&#x9CD;","index":0,"img":"https://farm3.staticflickr.com/2675/4117138841_e6e5b758cd.jpg"},"house":{"english":"house","type":"places","bangla":"bari","bLetters":"&#x9AC;&#x9B0;&#x9BF;","index":1,"img":"https://farm8.staticflickr.com/7211/7261184298_ca63c8ae26.jpg"},"bathroom":{"english":"bathroom","type":"places","bangla":"gosol khana","bLetters":"&#x997;&#x993;&#x9B8;&#x993;&#x9B2;&#x9CD; &#x996;&#x9A8;","index":2,"img":"https://farm4.staticflickr.com/3066/2634273575_5ca0e9a9c9.jpg"},"bedroom":{"english":"bedroom","type":"places","bangla":"sowar ghor","bLetters":"&#x9B8;&#x993;w&#x985;&#x9B0;&#x9CD; &#x998;&#x993;&#x9B0;&#x9CD;","index":3,"img":"https://farm4.staticflickr.com/3264/2797139381_5dca6b0d7a.jpg"},"floor":{"english":"floor","type":"places","bangla":"tola, mejhe","bLetters":"&#x99F;&#x993;&#x9B2;, &#x9AE;&#x98F;&#x99D;&#x98F;","index":4,"img":"https://farm3.staticflickr.com/2176/2301405501_99eecd8c93.jpg"},"ceiling":{"english":"ceiling","type":"places","bangla":"tak","bLetters":"&#x99F;&#x995;&#x9CD;","index":5,"img":"https://farm8.staticflickr.com/7195/7110649733_a9ac2c7eb8.jpg"},"window":{"english":"window","type":"places","bangla":"janala","bLetters":"&#x99C;&#x9A8;&#x9B2;","index":6,"img":"https://farm8.staticflickr.com/7067/6895500747_9e04cbc02b.jpg"}},"nature":{"beach":{"english":"beach","type":"nature","bangla":"sagorer upokul","bLetters":"&#x9B8;&#x997;&#x993;&#x9B0;&#x98F;&#x9B0;&#x9CD; &#x989;&#x9AA;&#x993;&#x995;&#x9C1;&#x9B2;&#x9CD;","index":0,"img":"https://farm6.staticflickr.com/5059/5573484679_1965314870.jpg"},"desert":{"english":"desert","type":"nature","bangla":"moruvumi","bLetters":"&#x9AE;&#x993;&#x9B0;&#x9C1;&#x9AC;&#x9C1;&#x9AE;&#x9BF;","index":1,"img":"https://farm8.staticflickr.com/7532/15616008447_ccf8fda524.jpg"},"forest":{"english":"forest","type":"nature","bangla":"boan","bLetters":"&#x9AC;&#x993;&#x985;&#x9A8;&#x9CD;","index":2,"img":"https://farm3.staticflickr.com/2810/13781208954_c1aea5530d.jpg"},"flowers":{"english":"flowers","type":"nature","bangla":"ful gulof","bLetters":"f&#x989;&#x9B2;&#x9CD; &#x997;&#x9C1;&#x9B2;&#x993;","index":3,"img":"https://farm8.staticflickr.com/7681/17127216652_1b77a1aea3.jpg"},"river":{"english":"river","type":"nature","bangla":"nodi","bLetters":"&#x9A8;&#x993;&#x9A1;&#x9BF;","index":4,"img":"https://farm3.staticflickr.com/2003/2164317362_612c27637e.jpg"},"sea":{"english":"sea","type":"nature","bangla":"somudro","bLetters":"&#x9B8;&#x993;&#x9AE;&#x9C1;&#x9A1;&#x9CD;&#x9B0;&#x993;","index":5,"img":"https://farm4.staticflickr.com/3845/14334567426_aeb4f7fa61.jpg"},"stars":{"english":"stars","type":"nature","bangla":"taroka gulo","bLetters":"&#x99F;&#x9B0;&#x993;&#x995; &#x997;&#x9C1;&#x9B2;&#x993;","index":6,"img":"https://farm6.staticflickr.com/5601/15459954198_25943c4242.jpg"},"earth":{"english":"earth","type":"nature","bangla":"prithibi","bLetters":"&#x9AA;&#x9CD;&#x9B0;&#x9BF;&#x9A4;&#x9BF;&#x9AC;&#x9BF;","index":7,"img":"https://farm6.staticflickr.com/5257/5570809216_b75557544e.jpg"}},"weather":{"weather":{"english":"weather","type":"weather","bangla":"abohawa","bLetters":"&#x985;&#x9AC;&#x993;&#x9B9;w&#x985;","index":0,"img":"https://farm3.staticflickr.com/2458/3682276061_2e179540f0.jpg"},"cloudy":{"english":"cloudy","type":"weather","bangla":"meghassonno","bLetters":"&#x9AE;&#x98F;&#x998;&#x9B8;&#x9CD;&#x9B8;&#x993;&#x9A8;&#x9CD;&#x9A8;&#x993;","index":1,"img":"https://farm4.staticflickr.com/3783/12139388275_166326a2db.jpg"},"cold":{"english":"cold","type":"weather","bangla":"thanda, sordi","bLetters":"&#x9A4;&#x9A8;&#x9CD;&#x9A1;, &#x9B8;&#x993;&#x9B0;&#x9CD;&#x9A1;&#x9BF;","index":2,"img":"https://farm5.staticflickr.com/4032/4206752614_5c9efe6b10.jpg"},"sunny":{"english":"sunny","type":"weather","bangla":"ujjol, alok moy","bLetters":"&#x989;&#x99C;&#x9CD;&#x99C;&#x993;&#x9B2;&#x9CD;, &#x985;&#x9B2;&#x993;&#x995;&#x9CD; &#x9AE;&#x993;&#x9AF;&#x9CD;","index":3,"img":"https://farm8.staticflickr.com/7451/9566331763_57ccfec62e.jpg"},"autumn":{"english":"autumn","type":"weather","bangla":"sorotkal","bLetters":"&#x9B8;&#x993;&#x9B0;&#x993;&#x99F;&#x9CD;&#x995;&#x9B2;&#x9CD;","index":4,"img":"https://farm2.staticflickr.com/1675/24231096181_fd9fd7d41c.jpg"},"spring":{"english":"spring","type":"weather","bangla":"bosonto kal","bLetters":"&#x9AC;&#x993;&#x9B8;&#x993;&#x9A8;&#x9CD;&#x99F;&#x993; &#x995;&#x9B2;&#x9CD;","index":5,"img":"https://farm1.staticflickr.com/581/21786643923_9261008162.jpg"}},"animals":{"cat":{"english":"cat","type":"animals","bangla":"biral","bLetters":"&#x9AC;&#x9BF;&#x9B0;&#x9B2;&#x9CD;","index":0,"img":"https://farm6.staticflickr.com/5704/20443802614_d0b0c0b5c5.jpg"},"mouse":{"english":"mouse","type":"animals","bangla":"idur","bLetters":"&#x987;&#x9A1;&#x9C1;&#x9B0;&#x9CD;","index":1,"img":"https://farm8.staticflickr.com/7446/9698334635_b907632de5.jpg"},"horse":{"english":"horse","type":"animals","bangla":"ghora","bLetters":"&#x998;&#x993;&#x9B0;","index":2,"img":"https://farm5.staticflickr.com/4069/4231428890_982f85f6df.jpg"},"rabbit":{"english":"rabbit","type":"animals","bangla":"khorgos","bLetters":"&#x996;&#x993;&#x9B0;&#x9CD;&#x997;&#x993;&#x9B8;&#x9CD;","index":3,"img":"https://farm3.staticflickr.com/2848/9321961625_7c984fe9e3.jpg"},"bear":{"english":"bear","type":"animals","bangla":"bohon kora","bLetters":"&#x9AC;&#x993;&#x9B9;&#x993;&#x9A8;&#x9CD; &#x995;&#x993;&#x9B0;","index":4,"img":"https://farm4.staticflickr.com/3180/3079177802_81275cf4d8.jpg"},"elephant":{"english":"elephant","type":"animals","bangla":"hati","bLetters":"&#x9B9;&#x99F;&#x9BF;","index":5,"img":"https://farm5.staticflickr.com/4128/4839030572_b4f0f2c314.jpg"},"lion":{"english":"lion","type":"animals","bangla":"singho","bLetters":"&#x9B8;&#x9BF;&#x9A8;&#x9CD;&#x998;&#x993;","index":6,"img":"https://farm4.staticflickr.com/3287/2988790519_91383812d9.jpg"},"snake":{"english":"snake","type":"animals","bangla":"sap","bLetters":"&#x9B8;&#x9AA;&#x9CD;","index":7,"img":"https://farm3.staticflickr.com/2346/1553471288_be56c349a2.jpg"}},"clothes":{"clothes":{"english":"clothes","type":"clothes","bangla":"posak","bLetters":"&#x9AA;&#x993;&#x9B8;&#x995;&#x9CD;","index":0,"img":"https://farm4.staticflickr.com/3601/3346599485_a717de5922.jpg"},"hat":{"english":"hat","type":"clothes","bangla":"hat","bLetters":"&#x9B9;&#x99F;&#x9CD;","index":1,"img":"https://farm4.staticflickr.com/3471/3271553401_102e26f9af.jpg"},"pants":{"english":"pants","type":"clothes","bangla":"pant, payjama","bLetters":"&#x9AA;&#x9A8;&#x9CD;&#x99F;&#x9CD;, &#x9AA;&#x9AF;&#x9CD;&#x99C;&#x9AE;","index":2,"img":"https://farm5.staticflickr.com/4067/4268562104_1bf8deb00a.jpg"},"umbrella":{"english":"umbrella","type":"clothes","bangla":"sata","bLetters":"&#x9B8;&#x99F;","index":3,"img":"https://farm4.staticflickr.com/3935/15559228745_2b90095d95.jpg"}},"people":{"people":{"english":"people","type":"people","bangla":"jonogon","bLetters":"&#x99C;&#x993;&#x9A8;&#x993;&#x997;&#x993;&#x9A8;&#x9CD;","index":0,"img":"https://farm6.staticflickr.com/5583/14167871183_89602b6791.jpg"},"wife":{"english":"wife","type":"people","bangla":"bodhu, bou","bLetters":"&#x9AC;&#x993;&#x9A6;&#x9C1;, &#x9AC;&#x993;&#x989;","index":1,"img":"https://farm1.staticflickr.com/170/427553387_a7d98c9d4b.jpg"},"mother":{"english":"mother","type":"people","bangla":"ma, amma","bLetters":"&#x9AE;, &#x985;&#x9AE;&#x9CD;&#x9AE;","index":2,"img":"https://farm5.staticflickr.com/4044/4592083834_201b070fe9.jpg"},"daughter":{"english":"daughter","type":"people","bangla":"konna, mayea","bLetters":"&#x995;&#x993;&#x9A8;&#x9CD;&#x9A8;, &#x9AE;&#x9AF;&#x98F;&#x985;","index":3,"img":"https://farm1.staticflickr.com/99/254150196_f27687a8fb.jpg"},"grandfather":{"english":"grandfather","type":"people","bangla":"dada, nana","bLetters":"&#x9A1;&#x9A1;, &#x9A8;&#x9A8;","index":4,"img":"https://farm1.staticflickr.com/201/493986197_c216a90bde.jpg"}}}
+},{}],160:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
-console.log("foo");
+var imgObj = require('./dataWimagesNEW');
+var data = imgObj;
+// var data = Object.keys( imgObj).reduce(function( arr, currentItem) {
+// 	arr.push( imgObj[ currentItem ] );
+// 	return arr;
+// }, []);
+
+// console.log( data );
+// <CardPage data={this.props.data}/>
+// var data = [
+//   {id: 1, author: "Pete Hunt", text: "This is one comment"},
+//   {id: 2, author: "Jordan Walke", text: "This is *another* comment"}
+// ];
 
 var Hello = React.createClass({
   displayName: 'Hello',
+
 
   render: function () {
     return React.createElement(
       'div',
       null,
-      'Hello ',
-      this.props.name
+      React.createElement(
+        'h1',
+        null,
+        'Learn Bangla'
+      ),
+      React.createElement(HomePage, null)
     );
   }
 });
 
-ReactDOM.render(React.createElement(Hello, { name: 'World!!!' }), document.getElementById('container'));
+var HomePage = React.createClass({
+  displayName: 'HomePage',
 
-},{"react":158,"react-dom":2}]},{},[159]);
+  loadCategory: function (event) {
+    console.log('foo');
+  },
+  render: function () {
+    var categories = Object.keys(data).reduce(function (arr, currentItem) {
+      arr.push(currentItem);
+      return arr;
+    }, []);
+
+    var categoryButtons = categories.map(function (title) {
+      return React.createElement(
+        'button',
+        { onClick: function (e) {
+            console.log(e.target.innerHTML());
+          }, key: title },
+        title
+      );
+    });
+    return React.createElement(
+      'div',
+      null,
+      ' ',
+      categoryButtons,
+      ' '
+    );
+  }
+});
+
+//set up a component that renders the cards of whatever arg
+// var Comment = React.createClass({
+//   render: function() {
+//     return (
+//      	<h2>{this.props.english}</h2>
+//     );
+//   }
+// });
+
+// var CardPage = React.createClass({
+// 	render: function() {
+// 	    var commentNodes = this.props.data.map(function(comment) {
+// 	    	console.log(comment)
+// 	      return (
+// 	        <Comment english={comment.english} key={comment.bangla}>
+// 	          {comment}
+// 	        </Comment>
+// 	      );
+// 	    });
+// 	    return (
+// 	      <div className="commentList">
+// 	        {commentNodes}
+// 	      </div>
+// 	    );
+//   	}
+
+// });
+
+ReactDOM.render(React.createElement(Hello, { data: data }), document.getElementById('container'));
+
+// //two pages- home and gamePlay
+
+// //home
+// //Create buttons for each category
+//onclick change
+
+// //Click a button
+// //remove buttons
+// //load flascards
+// //load back button
+
+// //click back button
+// //go back to home page
+
+},{"./dataWimagesNEW":159,"react":158,"react-dom":2}]},{},[160]);

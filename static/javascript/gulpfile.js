@@ -8,8 +8,9 @@
 // require the necessary dependencies
 var gulp = require('gulp');
 var source = require('vinyl-source-stream');
-var browserify = require('browserify'); // yes, browserify can 
-// also be called inside a .js file in Node
+var browserify = require('browserify'); 
+var uglify = require('gulp-uglify');
+var streamify = require('gulp-streamify');
 var babelify = require('babelify');
 
 // set up tasks
@@ -24,6 +25,7 @@ gulp.task('browserify', function() {
         // here, we take the concatenated dependencies
         // and "pipe" it to the bundled.js file
         .pipe( source( 'bundled.js' ) )
+        .pipe( streamify( uglify() ) )
         // then we write this file to the current directory
         .pipe( gulp.dest('./') );
 });
