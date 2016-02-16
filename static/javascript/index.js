@@ -50,6 +50,7 @@ var Game = React.createClass({
 	getRandom:function (){
 		var listLength = (this.state.data.length)-1; 
 		var index =	Math.floor(Math.random()*(listLength));
+		console.log(index)
 		this.setState({
 			currentCard: this.state.data[index], 
 			Index:index
@@ -65,21 +66,33 @@ var Game = React.createClass({
 				<img src={""+this.state.currentCard.img}/>
 				<p>{this.state.currentCard.english}</p>
 				<p>{this.state.currentCard.bangla}</p>
-				<input type="text" onClick={this.getInput}
+				<input type="text" onKeyPress={this.getInput}
 					id={this.state.currentCard.english}>
 				</input>
 			</div>)
 		}
-		
-
-		
 	},
 	drawCard:function() {
+		//determine level
 
 	},
-	getInput:function () {
+	getInput:function (e) {
 		//get input 
-		//if input matches english
+		if ( e.which === 13 ) {
+			var input = e.target.value
+			//if input matches english
+			if (input === this.state.currentCard.bangla) {
+				console.log("correct")
+				var i = this.state.index;
+				var oldList = this.state.data 
+				this.setState ({
+					data: oldList.splice(this.state.index, 1)
+				}, function (){
+					this.getRandom()
+				})
+			}
+		}
+		
 		//data.state = data.splice(list[index])
 		//this.getRandom()
 	},
