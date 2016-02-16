@@ -1,5 +1,6 @@
 var Router = require('director').Router;
 var React = require('react');
+var imgObj = require('./dataWimagesNEW'); 
 var ReactDOM = require('react-dom');
 var Hello = require('./homePage');
 //two pages home and play 
@@ -26,46 +27,48 @@ var router = Router( routes );
 router.init('/home');
 
 var Game = React.createClass({
+	getInitialState: function() {
+		
+		var category = imgObj[this.props.id];
+		var list = Object.keys(category).reduce(function(arr, currentItem) {
+
+			arr.push( category[currentItem]);
+			return arr;
+		}, []);
+		var listLength = (list.length)-1; 		
+		var randomCard = list[Math.floor(Math.random()*(listLength - 0) + 0)];
+
+		return {
+			//Get the data object for that category - save as an array 
+			data: list,
+			//Get a random item
+			currentCard: randomCard
+		}
+	},
+	drawCard: function() {
+		
+		return (
+			<div>
+				<img src={""+this.state.currentCard.img}/>
+				<p>{this.state.currentCard.english}</p>
+				<p>{this.state.currentCard.bangla}</p>
+				<input type="text" id={this.state.currentCard.english}>
+				</input>
+			</div>)
+		// draw the card and the input field 
+		
+	},
 	render: function() {
-		console.log("foo")
-		return (<h1>Hello, Wrold! {this.props.id} </h1>)
+	
+		// category[Object.keys(category)[Object.keys(category).length - 1]]
+		return (
+			<div>
+			<h1>{this.props.id} </h1>
+			{this.drawCard()}
+			</div>)
 	}
 })
 
-
-// var Hello = React.createClass({
-//   render: function() {
-//     return <div>
-//     <h1>Learn Bangla</h1>
-//     	<HomePage />
-//     </div>;
-//   }
-// });
-
-// var HomePage = React.createClass({
-//   loadCategory: function (event) {
-//   	console.log('foo')
-//   },
-//   render: function() {
-//   	var categories = Object.keys(data).reduce(function( arr, currentItem) {
-// 			arr.push( currentItem);
-// 			return arr;
-// 	}, []);
-
-//   	var categoryButtons = categories.map(function(title) {
-//   		return (
-// 			<button onClick={function(e) {
-// 				console.log(e.target}
-// 				} key={title}>
-// 	          {title}
-// 	        </button>
-// 	      );
-//   	});
-//     return (
-//      <div> {categoryButtons} </div>
-//     );
-//   }
-// });
 
 // ReactDOM.render(
 //   <Hello data={data} />,
