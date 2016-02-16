@@ -28,35 +28,60 @@ router.init('/home');
 
 var Game = React.createClass({
 	getInitialState: function() {
-		
 		var category = imgObj[this.props.id];
 		var list = Object.keys(category).reduce(function(arr, currentItem) {
-
 			arr.push( category[currentItem]);
 			return arr;
 		}, []);
-		var listLength = (list.length)-1; 		
-		var randomCard = list[Math.floor(Math.random()*(listLength - 0) + 0)];
-
+			
 		return {
 			//Get the data object for that category - save as an array 
 			data: list,
-			//Get a random item
-			currentCard: randomCard
+			currentCard: null,
+			Index: null,
+			//Determine (level one two or three)
+			level: 1
 		}
 	},
-	drawCard: function() {
+	//Get a random item 
+	componentDidMount:function () {
+		this.getRandom()
+	}, 
+	getRandom:function (){
+		var listLength = (this.state.data.length)-1; 
+		var index =	Math.floor(Math.random()*(listLength));
+		this.setState({
+			currentCard: this.state.data[index], 
+			Index:index
+		}, function() {
+			console.log("here",this.state.currentCard, index, this.state.data)
 		
-		return (
+			});
+	},
+	levelOne: function() {
+		if (this.state.currentCard !== null) {
+			return (
 			<div>
 				<img src={""+this.state.currentCard.img}/>
 				<p>{this.state.currentCard.english}</p>
 				<p>{this.state.currentCard.bangla}</p>
-				<input type="text" id={this.state.currentCard.english}>
+				<input type="text" onClick={this.getInput}
+					id={this.state.currentCard.english}>
 				</input>
 			</div>)
-		// draw the card and the input field 
+		}
 		
+
+		
+	},
+	drawCard:function() {
+
+	},
+	getInput:function () {
+		//get input 
+		//if input matches english
+		//data.state = data.splice(list[index])
+		//this.getRandom()
 	},
 	render: function() {
 	
@@ -64,7 +89,7 @@ var Game = React.createClass({
 		return (
 			<div>
 			<h1>{this.props.id} </h1>
-			{this.drawCard()}
+			{this.levelOne()}
 			</div>)
 	}
 })
