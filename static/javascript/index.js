@@ -41,8 +41,8 @@ var Game = React.createClass({
 			data: list,
 			currentCard: null,
 			Index: null,
-			// //Determine (level one two or three)
-			// level: 1
+			//Determine (level one two or three)
+			level: 1; 
 		}
 	},
 	
@@ -117,8 +117,8 @@ var Game = React.createClass({
 			}
 		}
 	},
-	//reset when it gets to zero
-	nextLevel:function() {
+	//Determine Level 
+	determineLevel:function() {
 		//determine level
 		return (<a href="#levelTwo">Level Two</a>)
 
