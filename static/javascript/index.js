@@ -5,7 +5,6 @@ var ReactDOM = require('react-dom');
 var Hello = require('./homePage');
 //two pages home and play 
 var routes = {
-
 	'/home': function() {
 		ReactDOM.render(
 		  <Hello />,
@@ -15,14 +14,13 @@ var routes = {
 	'/game/:id': function( id ) {
 		console.log( id )
 		ReactDOM.render(
-		  <Game id={id} />,
+		  <Game id={id} test={imgObj}/>,
 		  document.getElementById('container')
 		);
 	},
 }
 
 // console.log( routes, Router);
-
 var router = Router( routes );
 router.init('/home');
 
@@ -30,7 +28,7 @@ var Game = React.createClass({
 	//Get the data object for that category - save as an array 
 	//set state for object arr and current card
 	getInitialState: function() {
-		var category = imgObj[this.props.id];
+		var category = this.props.test[this.props.id];
 		var list = Object.keys(category).reduce(function(arr, currentItem) {
 			arr.push( category[currentItem]);
 			return arr;
@@ -51,6 +49,7 @@ var Game = React.createClass({
 	}, 
 	//Get a random item and set current card to that item 
 	getRandom:function (){
+		console.log("here", this.props.test)
 		var listLength = (this.state.data.length)-1; 
 		
 		
