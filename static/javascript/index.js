@@ -11,8 +11,8 @@ var routes = {
 		  document.getElementById('container')
 		);
 	},
-	'/game/:id': function( id ) {
-		console.log( id )
+	'/game/:id/:level': function( id, level ) {
+		console.log( id, level)
 		ReactDOM.render(
 		  <Game id={id} test={imgObj}/>,
 		  document.getElementById('container')

@@ -1,6 +1,6 @@
 var React = require('react');
 var imgObj = require('./dataWimagesNEW'); 
-var Router = require('director').Router;
+// var Router = require('director').Router;
 var data = Object.keys(imgObj).reduce(function( arr, currentItem) {
 			arr.push( currentItem);
 			return arr;
@@ -11,11 +11,9 @@ module.exports = React.createClass({
 	render: function() {
 		var categoryButtons = data.map(function(title) {
 	  		return (
-	  			
-				<a href={"/#game/"+title} key={title}>
+				<a href={"/#game/"+title+"/"+1} key={title}>
 		          {title}
 		        </a>
-
 		      );
 	  	});
 	    return (
