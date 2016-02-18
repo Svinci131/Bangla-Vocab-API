@@ -52,10 +52,8 @@ var Game = React.createClass({
 	//Get a random item and set current card to that item 
 	getRandom:function (){
 		var listLength = (this.state.data.length)-1; 
-		if (listLength === 0) {
-			//load level two 
-		}
-		else {
+		
+		
 			var index =	Math.floor(Math.random()*(listLength));
 			this.setState({
 				currentCard: this.state.data[index], 
@@ -68,21 +66,27 @@ var Game = React.createClass({
 				console.log(words)
 				//console.log("here",this.state.currentCard, index, this.state.data)
 			});
-		}
+		
 	
 	},
 	//Draw Current Card
 	levelOne: function() {
 		if (this.state.currentCard !== null) {
-			return (
-			<div>
-				<img src={""+this.state.currentCard.img}/>
-				<p>{this.state.currentCard.english}</p>
-				<p>{this.state.currentCard.bangla}</p>
-				<input type="text" onKeyPress={this.getInput}
-					id={this.state.currentCard.english}>
-				</input>
-			</div>)
+			if (this.state.data.length === 0) {
+				return (<a href="#levelTwo">Level Two</a>)
+			}
+			else {
+				return (
+				<div>
+					<img src={""+this.state.currentCard.img}/>
+					<p>{this.state.currentCard.english}</p>
+					<p>{this.state.currentCard.bangla}</p>
+					<input type="text" onKeyPress={this.getInput}
+						id={this.state.currentCard.english}>
+					</input>
+				</div>)
+			}
+			
 		}
 	},
 	//See if they wrote word correctly
@@ -102,8 +106,9 @@ var Game = React.createClass({
 				this.setState ({
 					data: oldList
 				}, function (){
-					// console.log(this.state.data.length)
+					
 					this.getRandom()
+					
 				})
 			}
 			//if it doesn't
@@ -113,8 +118,9 @@ var Game = React.createClass({
 		}
 	},
 	//reset when it gets to zero
-	reset:function() {
+	nextLevel:function() {
 		//determine level
+		return (<a href="#levelTwo">Level Two</a>)
 
 	},
 	render: function() {

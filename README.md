@@ -46,25 +46,27 @@ Step Two- Image Object
 Step Three-
 	*TWO "PAGES"- Home and game play 
 
-	* Create buttons for each category 
-		** Create new Obj from json file
-		** Create new Obj that's just the cat
-		
-	* Onclick Start Game 
+	HOME
+		* Create buttons for each category 	
+		* Onclick Go to Game Page(category)
 
-
+	PLAY- 
 	* Start with the level one questions
-		**Get a Random Obj from the 
-	* show them the english and bangla-ask them to type it out 
+		** Get a Random Obj from the Cat 
+		** Draw the Card 
+		** show them the english and bangla-ask them to type it out
+		** If they get it right remove and grab a new card
+		** otherwise just grab a new card
+		** When they get them all go to level two 
 
-	* If they get it right - remove 
+
+		*level two- 
+		 	** show bangla and have them write english 
+		 	** hint button 
 
 
+		*level three- 
+		 	** show english and have them write bangla 
+		 	** hint button 
 
-	render the photos and the english word 
-	*level one- 
-		* show english and bangla 
-	*level two-
-		* show multiple choice answers 
-	*level three
-		* have them type it in
+
