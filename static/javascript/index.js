@@ -24,6 +24,7 @@ var routes = {
 var router = Router( routes );
 router.init('/home');
 
+
 var Game = React.createClass({
 	//Get the data object for that category - save as an array 
 	//set state for object arr and current card
@@ -43,7 +44,6 @@ var Game = React.createClass({
 			// level: 1
 		}
 	},
-	
 	componentDidMount:function () {
 		this.getRandom()
 	}, 
@@ -51,8 +51,6 @@ var Game = React.createClass({
 	getRandom:function (){
 		console.log("here", this.props.test)
 		var listLength = (this.state.data.length)-1; 
-		
-		
 			var index =	Math.floor(Math.random()*(listLength));
 			this.setState({
 				currentCard: this.state.data[index], 
@@ -65,11 +63,12 @@ var Game = React.createClass({
 				console.log(words)
 				//console.log("here",this.state.currentCard, index, this.state.data)
 			});
-		
-	
 	},
 	//Draw Current Card
 	levelOne: function() {
+		// var category = this.props.test[this.props.id]
+		// var current = this.state.currentCard
+		// console.log("cur", current)
 		if (this.state.currentCard !== null) {
 			if (this.state.data.length === 0) {
 				return (<a href="#levelTwo">Level Two</a>)
@@ -97,11 +96,7 @@ var Game = React.createClass({
 			if (input === this.state.currentCard.bangla) {
 				var i = this.state.index;
 				var oldList = this.state.data; 
-
-				// console.log(oldList.length)
 				oldList.splice(this.state.Index, 1)
-				// console.log(oldList.length)
-				
 				this.setState ({
 					data: oldList
 				}, function (){
@@ -116,24 +111,30 @@ var Game = React.createClass({
 			}
 		}
 	},
-	//reset when it gets to zero
-	nextLevel:function() {
-		//determine level
-		return (<a href="#levelTwo">Level Two</a>)
-
-	},
 	render: function() {
-	
+
 		// category[Object.keys(category)[Object.keys(category).length - 1]]
 		return (
 			<div>
 			<h1>{this.props.id} </h1>
-			{this.levelOne()}
+				{this.levelOne()}
 			</div>)
 	}
 })
 
 
+
+var levelTEST = React.createClass({
+	render: function() {
+    return (
+      <div className="commentBox">
+        <h1>Comments</h1>
+       	<p>this.props.data.enlish</p>
+      </div>
+    );
+  }
+}); 
+// var levelTwo = React.createClass({}); 
 // ReactDOM.render(
 //   <Hello data={data} />,
 //   document.getElementById('container')
