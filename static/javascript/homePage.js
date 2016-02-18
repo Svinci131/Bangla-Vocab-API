@@ -9,16 +9,21 @@ var data = Object.keys(imgObj).reduce(function( arr, currentItem) {
 
 module.exports = React.createClass({
 	render: function() {
-		console.log(data)
 		var categoryButtons = data.map(function(title) {
 	  		return (
+	  			
 				<a href={"/#game/"+title} key={title}>
 		          {title}
 		        </a>
+
 		      );
 	  	});
 	    return (
-	     <div> {categoryButtons} </div>
+	     <div>
+	  		<h1> Learn Bangla</h1>
+	  		{categoryButtons} 
+	  		
+	  	</div>
 		);
 
 		

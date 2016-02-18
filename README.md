@@ -44,9 +44,12 @@ Step Two- Image Object
 		2. Get three or four images
 
 Step Three-
+	*TWO "PAGES"- Home and game play 
+
 	* Create buttons for each category 
 		** Create new Obj from json file
 		** Create new Obj that's just the cat
+		
 	* Onclick Start Game 
 
 
