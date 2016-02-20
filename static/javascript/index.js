@@ -3,7 +3,8 @@ var React = require('react');
 var imgObj = require('./dataWimagesNEW'); 
 var ReactDOM = require('react-dom');
 var Hello = require('./homePage');
-var Test = require('./test');
+var LevelTwo = require('./levelTwo');
+var LevelThree = require('./levelThree')
 //two pages home and play 
 var routes = {
 
@@ -20,10 +21,10 @@ var routes = {
 		  document.getElementById('container')
 		);
 	},
-	'/test/:id': function(id) {
+	'/levelTwo/:id': function(id) {
 		console.log( id )
 		ReactDOM.render(
-		  <Test id={id} data={imgObj}/>,
+		  <LevelTwo id={id} data={imgObj}/>,
 		  document.getElementById('container')
 		);
 	},
@@ -41,15 +42,7 @@ var router = Router( routes );
 router.init('/home');
 
 
-var LevelThree = React.createClass({
-	render: function() {
-		console.log("here")
-		return (<div>
-			<h1>level three</h1>
-			</div>
 
-	)}
-});
 
 var Game = React.createClass({
 	//Get the data object for that category - save as an array 
@@ -91,7 +84,7 @@ var Game = React.createClass({
 	levelOne: function() {
 		if (this.state.currentCard !== null) {
 			if (this.state.data.length === 0) {
-				return (<a href={"#test/"+this.props.id}>Level Two</a>)
+				return (<a href={"#levelTwo/"+this.props.id}>Level Two</a>)
 			}
 			else {
 				return (

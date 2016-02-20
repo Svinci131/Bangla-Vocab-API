@@ -3,7 +3,7 @@ var imgObj = require('./dataWimagesNEW');
 var Router = require('director').Router;
 
 
-var LevelThree = React.createClass({
+module.exports = React.createClass({
 	render: function() {
 		console.log("here")
 		return (<div>
