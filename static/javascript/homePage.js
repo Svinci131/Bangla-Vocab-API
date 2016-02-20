@@ -6,7 +6,6 @@ var data = Object.keys(imgObj).reduce(function( arr, currentItem) {
 			return arr;
 	}, []);
 
-
 module.exports = React.createClass({
 	render: function() {
 		var categoryButtons = data.map(function(title) {
