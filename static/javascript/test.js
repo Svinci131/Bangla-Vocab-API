@@ -39,7 +39,11 @@ module.exports = React.createClass({
 	levelTwo: function() {
 
 		if (this.state.currentCard !== null) {
-			console.log(this.state.currentCard.english)
+			// console.log(this.state.currentCard.english)
+			if (this.state.data.length === 0) {
+				return (<a href="#levelThree">Level Three</a>)
+			}
+			else {
 			return (
 				<div>
 					<img src={""+this.state.currentCard.img}/>
@@ -49,6 +53,7 @@ module.exports = React.createClass({
 					</input>
 					<button className="hint">hint</button>
 				</div>)
+			}
 		}
 	},
 	//See if they wrote word correctly

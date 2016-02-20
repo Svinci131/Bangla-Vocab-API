@@ -26,6 +26,12 @@ var routes = {
 		  <Test id={id} data={imgObj}/>,
 		  document.getElementById('container')
 		);
+	},
+	'/levelThree': function() {
+		ReactDOM.render(
+		  <LevelThree />,
+		  document.getElementById('container')
+		);
 	}
 }
 
@@ -35,7 +41,15 @@ var router = Router( routes );
 router.init('/home');
 
 
+var LevelThree = React.createClass({
+	render: function() {
+		console.log("here")
+		return (<div>
+			<h1>level three</h1>
+			</div>
 
+	)}
+});
 
 var Game = React.createClass({
 	//Get the data object for that category - save as an array 
