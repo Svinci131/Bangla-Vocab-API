@@ -9,6 +9,7 @@ module.exports = React.createClass({
 		return (
 			<div>
 			<h1>TEST </h1>
+			<h2>{this.props.id}</h2>
 			</div>)
 	}
 });

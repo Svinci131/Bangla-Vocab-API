@@ -16,13 +16,14 @@ var routes = {
 	'/game/:id': function( id ) {
 		console.log( id )
 		ReactDOM.render(
-		  <Game id={id} />,
+		  <Game id={id} data={imgObj}/>,
 		  document.getElementById('container')
 		);
 	},
-	'/test': function() {
+	'/test/:id': function(id) {
+		console.log( id )
 		ReactDOM.render(
-		  <Test />,
+		  <Test id={id}/>,
 		  document.getElementById('container')
 		);
 	}
@@ -40,7 +41,7 @@ var Game = React.createClass({
 	//Get the data object for that category - save as an array 
 	//set state for object arr and current card
 	getInitialState: function() {
-		var category = imgObj[this.props.id];
+		var category = this.props.data[this.props.id];
 		var list = Object.keys(category).reduce(function(arr, currentItem) {
 			arr.push( category[currentItem]);
 			return arr;
@@ -90,9 +91,10 @@ var Game = React.createClass({
 	},	
 	//Draw Current Card
 	levelOne: function() {
+
 		if (this.state.currentCard !== null) {
 			if (this.state.data.length === 0) {
-				return (<a href="#test">Level Two</a>)
+				return (<a href={"#test/"+this.props.id}>Level Two</a>)
 			}
 			else {
 				return (
@@ -178,4 +180,3 @@ var Game = React.createClass({
 
 // //click back button 
 // //go back to home page 
-
