@@ -23,7 +23,7 @@ var routes = {
 	'/test/:id': function(id) {
 		console.log( id )
 		ReactDOM.render(
-		  <Test id={id}/>,
+		  <Test id={id} data={imgObj}/>,
 		  document.getElementById('container')
 		);
 	}
@@ -52,8 +52,6 @@ var Game = React.createClass({
 			data: list,
 			currentCard: null,
 			Index: null,
-			//Determine (level one two or three)
-			// level: 1 
 		}
 	},
 	
@@ -73,25 +71,10 @@ var Game = React.createClass({
 				return arr;
 				}, []);
 				console.log(words)
-				//console.log("here",this.state.currentCard, index, this.state.data)
 			});
 	},
-	determineLevel:function () {
-		// console.log(this.state.level)
-		// //determine level
-		// var currentLevel; 
-
-		// if (this.state.level === 1){
-		// 	currentLevel = {this.levelOne()}
-		// }
-		// else if (this.state.level === 2){
-		// 	currentLevel = {this.levelTwo()}
-		// }
-		// return (<a href="#levelTwo">Level Two</a>)
-	},	
 	//Draw Current Card
 	levelOne: function() {
-
 		if (this.state.currentCard !== null) {
 			if (this.state.data.length === 0) {
 				return (<a href={"#test/"+this.props.id}>Level Two</a>)
@@ -110,56 +93,27 @@ var Game = React.createClass({
 			
 		}
 	},
-	levelTwo: function() {
-		return (
-			<div>
-				<img src={""+this.state.currentCard.img}/>
-				<p>{this.state.currentCard.bangla}</p>
-				<input type="text" placeholder="type English" onKeyPress={this.getInput}
-					id={this.state.currentCard.english}>
-				</input>
-				<button className="hint">hint</button>
-			</div>)
-	},
 	//See if they wrote word correctly
 	getInput:function (e) {
 		//get input 
 		if ( e.which === 13 ) {
-			///change based on level 
-			// if (this.state.level === 1) {
-	
-			// }
-
 			var input = e.target.value
 			//if input matches english
 			if (input === this.state.currentCard.bangla) {
 				var i = this.state.index;
 				var oldList = this.state.data; 
-				// var nextLevel = level + 1 
-				// console.log(oldList.length)
 				oldList.splice(this.state.Index, 1)
 				// console.log(oldList.length)
-				
 				this.setState ({
 					data: oldList
 				}, function (){
 					this.getRandom()
 				})
 			}
-			// else {
-			// 	this.setState ({
-			// 		level: nextLevel
-			// 	},function(){
-			// 		this.getRandom();
-			// 	});
-				
-			// }
 		}
 	},
 
 	render: function() {
-	
-		// category[Object.keys(category)[Object.keys(category).length - 1]]
 		return (
 			<div>
 			<h1>{this.props.id} </h1>
