@@ -1,5 +1,5 @@
 var React = require('react');
-var imgObj = require('./dataWimages'); 
+var imgObj = require('./dataWimagesNEW'); 
 var Router = require('director').Router;
 var data = Object.keys(imgObj).reduce(function( arr, currentItem) {
 			arr.push( currentItem);
@@ -10,9 +10,8 @@ module.exports = React.createClass({
 	render: function() {
 		var categoryButtons = data.map(function(title) {
 	  		return (
-	  			
 				<a href={"/#levelOne/"+title} key={title}>
-		          {title}!!!
+		          {title}
 		        </a>
 
 		      );

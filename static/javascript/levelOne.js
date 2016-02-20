@@ -81,6 +81,7 @@ module.exports = React.createClass({
 		return (
 			<div>
 			<h1>{this.props.id} </h1>
+			<h2>levelOne</h2>
 			{this.levelOne()}
 			</div>)
 	}
