@@ -3,6 +3,7 @@ var React = require('react');
 var imgObj = require('./dataWimagesNEW'); 
 var ReactDOM = require('react-dom');
 var Hello = require('./homePage');
+var Test = require('./test');
 //two pages home and play 
 var routes = {
 
@@ -19,12 +20,21 @@ var routes = {
 		  document.getElementById('container')
 		);
 	},
+	'/test': function() {
+		ReactDOM.render(
+		  <Test />,
+		  document.getElementById('container')
+		);
+	}
 }
 
 // console.log( routes, Router);
 
 var router = Router( routes );
 router.init('/home');
+
+
+
 
 var Game = React.createClass({
 	//Get the data object for that category - save as an array 
@@ -42,7 +52,7 @@ var Game = React.createClass({
 			currentCard: null,
 			Index: null,
 			//Determine (level one two or three)
-			level: 1; 
+			// level: 1 
 		}
 	},
 	
@@ -52,8 +62,6 @@ var Game = React.createClass({
 	//Get a random item and set current card to that item 
 	getRandom:function (){
 		var listLength = (this.state.data.length)-1; 
-		
-		
 			var index =	Math.floor(Math.random()*(listLength));
 			this.setState({
 				currentCard: this.state.data[index], 
@@ -66,14 +74,25 @@ var Game = React.createClass({
 				console.log(words)
 				//console.log("here",this.state.currentCard, index, this.state.data)
 			});
-		
-	
 	},
+	determineLevel:function () {
+		// console.log(this.state.level)
+		// //determine level
+		// var currentLevel; 
+
+		// if (this.state.level === 1){
+		// 	currentLevel = {this.levelOne()}
+		// }
+		// else if (this.state.level === 2){
+		// 	currentLevel = {this.levelTwo()}
+		// }
+		// return (<a href="#levelTwo">Level Two</a>)
+	},	
 	//Draw Current Card
 	levelOne: function() {
 		if (this.state.currentCard !== null) {
 			if (this.state.data.length === 0) {
-				return (<a href="#levelTwo">Level Two</a>)
+				return (<a href="#test">Level Two</a>)
 			}
 			else {
 				return (
@@ -81,7 +100,7 @@ var Game = React.createClass({
 					<img src={""+this.state.currentCard.img}/>
 					<p>{this.state.currentCard.english}</p>
 					<p>{this.state.currentCard.bangla}</p>
-					<input type="text" onKeyPress={this.getInput}
+					<input type="text" placeholder="type bangla" onKeyPress={this.getInput}
 						id={this.state.currentCard.english}>
 					</input>
 				</div>)
@@ -89,16 +108,32 @@ var Game = React.createClass({
 			
 		}
 	},
+	levelTwo: function() {
+		return (
+			<div>
+				<img src={""+this.state.currentCard.img}/>
+				<p>{this.state.currentCard.bangla}</p>
+				<input type="text" placeholder="type English" onKeyPress={this.getInput}
+					id={this.state.currentCard.english}>
+				</input>
+				<button className="hint">hint</button>
+			</div>)
+	},
 	//See if they wrote word correctly
 	getInput:function (e) {
 		//get input 
 		if ( e.which === 13 ) {
+			///change based on level 
+			// if (this.state.level === 1) {
+	
+			// }
+
 			var input = e.target.value
 			//if input matches english
 			if (input === this.state.currentCard.bangla) {
 				var i = this.state.index;
 				var oldList = this.state.data; 
-
+				// var nextLevel = level + 1 
 				// console.log(oldList.length)
 				oldList.splice(this.state.Index, 1)
 				// console.log(oldList.length)
@@ -106,23 +141,20 @@ var Game = React.createClass({
 				this.setState ({
 					data: oldList
 				}, function (){
-					
 					this.getRandom()
-					
 				})
 			}
-			//if it doesn't
-			else {
-				this.getRandom()
-			}
+			// else {
+			// 	this.setState ({
+			// 		level: nextLevel
+			// 	},function(){
+			// 		this.getRandom();
+			// 	});
+				
+			// }
 		}
 	},
-	//Determine Level 
-	determineLevel:function() {
-		//determine level
-		return (<a href="#levelTwo">Level Two</a>)
 
-	},
 	render: function() {
 	
 		// category[Object.keys(category)[Object.keys(category).length - 1]]
