@@ -35,9 +35,11 @@ Step One- Vocab Object*compile a list of words as an JSONobject
 					}
 	}
 
+	To do: Check Numbers
+
 Step Two- Image Object
-	*Do a flickr search for each word in the object 
-	and add the top four images to the object 
+	* Do a flickr search for each word in the object 
+		and add the top four images to the object 
 
 	To Do: 
 		1. Download all the images
@@ -51,7 +53,7 @@ Step Three-
 		* Onclick Go to Game Page(category)
 
 	PLAY- 
-	* Start with the level one questions
+	*level one
 		** Get a Random Obj from the Cat 
 		** Draw the Card 
 		** show them the english and bangla-ask them to type it out
@@ -60,13 +62,15 @@ Step Three-
 		** When they get them all go to level two 
 
 
-		*level two- 
+	*level two- 
 		 	** show bangla and have them write english 
-		 	** hint button 
+		 	** hint button - show picture 
 
 
-		*level three- 
-		 	** show english and have them write bangla 
-		 	** hint button 
+	*level three- 
+		** show english and have them write bangla 
+		** hint button 
 
+	To Do: 
 
+	Styling, Hints, back buttons 

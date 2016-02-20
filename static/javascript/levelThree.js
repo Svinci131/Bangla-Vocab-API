@@ -1,5 +1,4 @@
 var React = require('react');
-var imgObj = require('./dataWimagesNEW'); 
 var Router = require('director').Router;
 
 

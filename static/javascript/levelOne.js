@@ -2,6 +2,8 @@ var React = require('react');
 var Router = require('director').Router;
 
 module.exports = React.createClass({
+	//Get the data object for that category - save as an array 
+	//set state for object arr and current card
 	getInitialState: function() {
 		var category = this.props.data[this.props.id];
 		var list = Object.keys(category).reduce(function(arr, currentItem) {
@@ -16,6 +18,7 @@ module.exports = React.createClass({
 			Index: null,
 		}
 	},
+	
 	componentDidMount:function () {
 		this.getRandom()
 	}, 
@@ -34,34 +37,33 @@ module.exports = React.createClass({
 				console.log(words)
 			});
 	},
-	//Draw card
-	levelTwo: function() {
-
+	//Draw Current Card
+	levelOne: function() {
 		if (this.state.currentCard !== null) {
-			// console.log(this.state.currentCard.english)
 			if (this.state.data.length === 0) {
-				return (<a href="#levelThree">Level Three</a>)
+				return (<a href={"#levelTwo/"+this.props.id}>Level Two</a>)
 			}
 			else {
-			return (
+				return (
 				<div>
+					<img src={""+this.state.currentCard.img}/>
+					<p>{this.state.currentCard.english}</p>
 					<p>{this.state.currentCard.bangla}</p>
-					<input type="text" placeholder="Type English" onKeyPress={this.getInput}
+					<input type="text" placeholder="type bangla" onKeyPress={this.getInput}
 						id={this.state.currentCard.english}>
 					</input>
-					<button className="hint">hint</button>
 				</div>)
 			}
+			
 		}
 	},
-	
 	//See if they wrote word correctly
 	getInput:function (e) {
 		//get input 
 		if ( e.which === 13 ) {
 			var input = e.target.value
 			//if input matches english
-			if (input === this.state.currentCard.english) {
+			if (input === this.state.currentCard.bangla) {
 				var i = this.state.index;
 				var oldList = this.state.data; 
 				oldList.splice(this.state.Index, 1)
@@ -79,7 +81,7 @@ module.exports = React.createClass({
 		return (
 			<div>
 			<h1>{this.props.id} </h1>
-			{this.levelTwo()}
+			{this.levelOne()}
 			</div>)
 	}
-}); 
+})

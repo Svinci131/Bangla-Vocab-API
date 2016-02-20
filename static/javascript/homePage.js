@@ -12,7 +12,7 @@ module.exports = React.createClass({
 		var categoryButtons = data.map(function(title) {
 	  		return (
 	  			
-				<a href={"/#game/"+title} key={title}>
+				<a href={"/#levelOne/"+title} key={title}>
 		          {title}
 		        </a>
 
