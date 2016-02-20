@@ -1,6 +1,6 @@
 var Router = require('director').Router;
 var React = require('react');
-var imgObj = require('./dataWimagesNEW'); 
+var imgObj = require('./dataWimages'); 
 var ReactDOM = require('react-dom');
 var Hello = require('./homePage');
 var LevelOne = require('./levelOne');

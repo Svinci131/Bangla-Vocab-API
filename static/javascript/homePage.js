@@ -1,5 +1,5 @@
 var React = require('react');
-var imgObj = require('./dataWimagesNEW'); 
+var imgObj = require('./dataWimages'); 
 var Router = require('director').Router;
 var data = Object.keys(imgObj).reduce(function( arr, currentItem) {
 			arr.push( currentItem);

@@ -1,4 +1,4 @@
-var obj 		= require('./data');
+var obj 		= require('./newdata');
 var request 	= require("superagent");
 var API_KEY 	= "fe03e6cf12d2f0ad16e81c15cc926317";
 var API_BASE 	= 'https://api.flickr.com/services/rest/';
@@ -29,6 +29,7 @@ function objPromise() {
 				// console.log( curr );
 				// console.log( val );
 				if ( val === 1 ) {
+					console.log("searching")
 					return search( curr.word, curr.wordObj );
 				}
 				else {
@@ -45,12 +46,10 @@ function objPromise() {
 }
 
 objPromise().then (function(response){
-	fs.writeFile('dataWimagesNEW.json', JSON.stringify(obj), function( err ) {
+	console.log(obj)
+	fs.writeFile('dataWimagesNEW2.json', JSON.stringify(obj), function( err ) {
     	console.log(err);
   	});
-  	// fs.writeFile('hello.json', "hello", function( err ) {
-   //  	console.log(err);
-  	// });
 }); 
 
 
@@ -86,21 +85,40 @@ function search( word, wordObj ) {
 	})
 	
 	.then(function(response){
+		console.log("writinging imageObject", word)
 		var data = JSON.parse( response.text );
 			data = data.photos.photo; 
 
-		if (typeof data[5] !== "undefined") {
+		var imgObj = {}; 
 
-			var title = data[5].title;
-			var id = data[5].id;
-			var server = data[5].server;
-			var secret = data[5].secret;
-			var farmID = data[5].farm;
+		for (var i = 5; i > 0; i--){
+			if (typeof data[i] !== "undefined") {
+
+			var title = data[i].title;
+			var id = data[i].id;
+			var server = data[i].server;
+			var secret = data[i].secret;
+			var farmID = data[i].farm;
 			var img = 'https://farm'+farmID+'.staticflickr.com/'+server+'/'+id+'_'+secret+'.jpg';
 			var div = "<div style='border: 1px solid black'>"+img+"<p>"+title+"</p><p><em>"+id+"</em></p></div>"
 			
-			wordObj["img"] = img;
+			imgObj["0"+i]=img;
+			}
 		}
+
+		wordObj["img"] = imgObj;
+		// if (typeof data[5] !== "undefined") {
+
+		// 	var title = data[5].title;
+		// 	var id = data[5].id;
+		// 	var server = data[5].server;
+		// 	var secret = data[5].secret;
+		// 	var farmID = data[5].farm;
+		// 	var img = 'https://farm'+farmID+'.staticflickr.com/'+server+'/'+id+'_'+secret+'.jpg';
+		// 	var div = "<div style='border: 1px solid black'>"+img+"<p>"+title+"</p><p><em>"+id+"</em></p></div>"
+			
+		// 	wordObj["img"] = img;
+		// }
 
 		return new Promise(function(resolve, reject){
 			resolve(wordObj);
