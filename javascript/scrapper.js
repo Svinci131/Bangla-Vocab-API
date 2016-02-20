@@ -35,6 +35,7 @@ requestPromise( url )
       links = $(".sidebar-menu li a").each(function(idx, el) {
       el = $(el);
       if (idx >= 8 && idx<=33){
+        // console.log(el.html())
         // popObj( el.attr('href'), idx, 32 );
         //console.log( 'About to fetch: ' + el.attr('href') + '\n' );
         arr.push( fetchData( el.attr('href') ) );
@@ -44,8 +45,9 @@ requestPromise( url )
   return Q.all( arr );
 })
 .then(function(){
+  console.log(obj)
 // //   // console.log( 'writing to file...' );
-  fs.writeFile('data.json', JSON.stringify(obj), function( err ) {
+  fs.writeFile('newdata.json', JSON.stringify(obj), function( err ) {
     console.log('done!');
   });
     
@@ -66,17 +68,32 @@ function fetchData( url ) {
     //console.log( 'Found: ' + url + '\n' );
     var group = url.split("_");
     group = group[group.length-1].split(".")[0]
+    
+    //there are a lot more groups than we end up with as objects 
     var $ = cheerio.load(body),
 
-        word = $(".table tbody").eq(1).children().each(function (idx, el) { 
+        word = $(".table tbody").eq(1).children("tr").children("td").each(function (idx, el) { 
                   el = $(el);
+                  
                   var english = el.find('img').attr('alt');
-                  // console.log( english ) 
+                  
+                  // console.log("HERE", group, english)
+                  // create an alternet thing for the ones that are formatted differently 
                   var bLetters = el.find('b').html();
-                  var all = el.find('td').text();
+                  // console.log("01", bLetters)
+                  var all = el.text();
+            
+
+                  // if (english !== all){
+                    
+                  //   //sad - সড্
+                  //   //circular
+                  //   //fromhoiteহওইটএ
+                  // }
                   if ( !english || !english.length ) {
                     return;
                   }
+
                   var allEIndx = english.length; 
                   var bangla = all.substring (allEIndx)
                   var bLetterIndex = null;
