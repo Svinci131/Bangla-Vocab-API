@@ -84,7 +84,7 @@ module.exports = React.createClass({
 			input = input.toLowerCase();
 			e.target.value = ""
 			//if input matches english
-			if (input === this.state.currentCard.bangla) {
+			if (input === this.state.currentCard.bangla.toLowerCase()) {
 				var i = this.state.index;
 				var oldList = this.state.data; 
 				oldList.splice(this.state.Index, 1)
