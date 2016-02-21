@@ -72,4 +72,5 @@ Step Three-
 
 	To Do: 
 
-	Styling, Hints, back buttons 
+	replace photos- meat, cheese 
+

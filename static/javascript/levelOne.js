@@ -35,7 +35,7 @@ module.exports = React.createClass({
 				arr.push( currentItem.english);
 				return arr;
 				}, []);
-				// console.log("remaining", words)
+				console.log("remaining", words)
 			});
 	},
 	//Draw Current Card
@@ -61,17 +61,17 @@ module.exports = React.createClass({
 				});
 				// console.log(urls)
 				return (
-				<div className="twoCol_wrapper">
-					<div className="twoCol_imgWrapper">
+				<div className="ui two column centered grid">
+					<div className="column">
 						{images}
 					</div>
-					<div className="twoCol_textWrapper">
+					<div className="column">
 						<p><em>English: </em> {this.state.currentCard.english}</p>
 						<p><em>Bangla: </em>{this.state.currentCard.bangla}</p>
 						<BLetters data={this.state.currentCard} />
-						<input type="text" placeholder="type bangla" onKeyPress={this.getInput}
-							id={this.state.currentCard.english}>
-						</input>
+						<div className="ui input">
+ 						 <input onKeyPress={this.getInput} type="text" placeholder="Enter Bengali Pronuciation" />
+						</div>
 					</div>
 				</div>)
 			}
@@ -105,11 +105,12 @@ module.exports = React.createClass({
 
 	render: function() {
 		return (
-			<div className="gamePlay">
-			<Title id={this.props.id} data={this.props.data}/>
-			{this.levelOne()}
-			<a  className="back" href="/#home">Back</a>
-			</div>)
+			<div>
+				<Title id={this.props.id} data={this.props.data}/>
+				{this.levelOne()}
+			</div>
+
+			)
 	}
 })
 

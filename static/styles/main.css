@@ -57,7 +57,7 @@ semantic new*/
 	.twoCol_thumbnail {
 		width: 49%;
 	    display: inline-block;
-	    height: 100px;
+	    height: 143px;
 		background-size: cover;
 		margin-right:2%;
 	}
@@ -68,6 +68,10 @@ semantic new*/
 	}
 	.twoCol_thumbnail:last-child {
 		margin:0;
+	}
+	#results {
+		margin-bottom: 5%;
+
 	}
 	/*levelOnetext*/
 	.twoCol_textWrapper {
