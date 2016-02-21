@@ -1,5 +1,6 @@
 var React = require('react');
-var Router = require('director').Router;
+var BLetters = require('./bLetters');
+var Title = require('./title');
 var Hint = require('./hint');
 
 module.exports = React.createClass({
@@ -54,7 +55,10 @@ module.exports = React.createClass({
 				<div className="levelTwo_word">
 					<div className="levelTwo_textHolder">
 						<p><em>Bangla: </em>{this.state.currentCard.bangla}</p>
+						<BLetters data={this.state.currentCard} />
+						
 						{ this.state.showHint ? <Hint data={this.state.currentCard.english}/> : null }
+						
 						<input type="text" placeholder="Type English" onKeyPress={this.getInput}
 							id={this.state.currentCard.english}>
 						</input>
@@ -93,8 +97,7 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<div className="gamePlay">
-			<h1>{this.props.id}: levelTwo </h1>
-			<h4><em> Read the Bangla and enter English</em></h4>
+			<Title id={this.props.id} data={this.props.data}/>
 			{this.levelTwo()}
 			<a className="back" href="/#home">Back</a>
 			</div>)

@@ -1,5 +1,6 @@
 var React = require('react');
-var Router = require('director').Router;
+var BLetters = require('./bLetters');
+var Title = require('./title');
 var Hint = require('./hint');
 
 
@@ -73,8 +74,8 @@ module.exports = React.createClass({
 						{images}
 					</div>
 					<div className="twoCol_textWrapper">
+						<p><em>English: </em> {this.state.currentCard.english}</p>
 						{ this.state.showHint ? <Hint data={this.state.currentCard.bangla}/> : null }
-						
 						<input type="text" placeholder="type bangla" onKeyPress={this.getInput}
 							id={this.state.currentCard.bangla}>
 						</input>
@@ -114,7 +115,7 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<div className="gamePlay">
-			<h1>{this.props.id}: Level Three </h1>
+			<Title id={this.props.id} data={this.props.data}/>
 			{this.drawQuestion()}
 			<a className="back" href="/#home">Back</a>
 			</div>)

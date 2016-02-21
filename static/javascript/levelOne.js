@@ -1,6 +1,6 @@
 var React = require('react');
-var Router = require('director').Router;
-var Entities = require('html-entities').AllHtmlEntities;
+var BLetters = require('./bLetters');
+var Title = require('./title');
 
 module.exports = React.createClass({
 	//Get the data object for that category - save as an array 
@@ -66,7 +66,7 @@ module.exports = React.createClass({
 						{images}
 					</div>
 					<div className="twoCol_textWrapper">
-						<p><em>Enlish: </em> {this.state.currentCard.english}</p>
+						<p><em>English: </em> {this.state.currentCard.english}</p>
 						<p><em>Bangla: </em>{this.state.currentCard.bangla}</p>
 						<BLetters data={this.state.currentCard} />
 						<input type="text" placeholder="type bangla" onKeyPress={this.getInput}
@@ -104,65 +104,15 @@ module.exports = React.createClass({
 	},
 
 	render: function() {
-		function titleCase(string) { 
-			return string.charAt(0).toUpperCase() + string.slice(1)
-		}
-		var title = titleCase(this.props.id)
-		var titleObj = this.props.data[this.props.id][title];
-		var Char = String.fromCharCode;
-		var hexEntities=titleObj.bLetters;
-		hexEntities = hexEntities.split(";");
-		hexEntities = hexEntities.slice(0, hexEntities.length-1)
-
-		entities = new Entities();
- 		console.log("before", hexEntities)
- 		var arr = hexEntities.reduce(function(arr, curr){
- 			var Char = entities.decode(""+curr+";")
- 			arr.push( Char);
-			return arr;
-		}, []);
-
- 		var bLetters = arr.join(" ")
- 		console.log("after", bLetters)
- // &lt;&gt;&quot;&amp;&copy;&reg;∆ 
-// console.log(entities.encodeNonUTF('<>"&©®∆')); // &lt;&gt;&quot;&amp;&copy;&reg;&#8710; 
-// console.log(entities.encodeNonASCII('<>"&©®∆')); // <>"&©®&#8710; 
-// console.log(entities.decode('&lt;&gt;&quot;&amp;&copy;&reg;')); // <>"&©® 
-// console.log("here",entities.decode(""+hexEntities[0]+";")); // <>"&©® 
-
 		return (
 			<div className="gamePlay">
-			<h1>{this.props.id}: Level One {bLetters}</h1>
+			<Title id={this.props.id} data={this.props.data}/>
 			{this.levelOne()}
-			
 			<a  className="back" href="/#home">Back</a>
 			</div>)
 	}
 })
 
-var BLetters = React.createClass({
-	convertFromHex: function () {
-		var hexEntities = this.props.data.bLetters; 
-		hexEntities = hexEntities.split(";");
-		hexEntities = hexEntities.slice(0, hexEntities.length-1)
-		entities = new Entities();
-		var arr = hexEntities.reduce(function(arr, curr){
- 			var Char = entities.decode(""+curr+";")
- 			arr.push( Char);
-			return arr;
-		}, []);
 
- 		var bLetters = arr.join(" ")
 
- 		return (<p>{bLetters}</p>)
-
-	},
-    render: function() {
-        return (
-            <div id="results" className="search-results">
-                <p>{this.props.data.bLetters}</p>
-                {this.convertFromHex()}
-            </div>
-        );
-    }
-});
+		
