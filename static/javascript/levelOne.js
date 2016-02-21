@@ -1,5 +1,6 @@
 var React = require('react');
 var Router = require('director').Router;
+var Entities = require('html-entities').AllHtmlEntities;
 
 module.exports = React.createClass({
 	//Get the data object for that category - save as an array 
@@ -34,7 +35,7 @@ module.exports = React.createClass({
 				arr.push( currentItem.english);
 				return arr;
 				}, []);
-				console.log("remaining", words)
+				// console.log("remaining", words)
 			});
 	},
 	//Draw Current Card
@@ -102,10 +103,37 @@ module.exports = React.createClass({
 	},
 
 	render: function() {
+		function titleCase(string) { 
+			return string.charAt(0).toUpperCase() + string.slice(1)
+		}
+		var title = titleCase(this.props.id)
+		var titleObj = this.props.data[this.props.id][title];
+		var Char = String.fromCharCode;
+		var hexEntities=titleObj.bLetters;
+		hexEntities = hexEntities.split(";");
+		hexEntities = hexEntities.slice(0, hexEntities.length-1)
+
+		entities = new Entities();
+ 		console.log("before", hexEntities)
+ 		var arr = hexEntities.reduce(function(arr, curr){
+ 			var Char = entities.decode(""+curr+";")
+ 			arr.push( Char);
+			return arr;
+		}, []);
+
+ 		var bLetters = arr.join(" ")
+ 		console.log("after", bLetters)
+ // &lt;&gt;&quot;&amp;&copy;&reg;∆ 
+// console.log(entities.encodeNonUTF('<>"&©®∆')); // &lt;&gt;&quot;&amp;&copy;&reg;&#8710; 
+// console.log(entities.encodeNonASCII('<>"&©®∆')); // <>"&©®&#8710; 
+// console.log(entities.decode('&lt;&gt;&quot;&amp;&copy;&reg;')); // <>"&©® 
+// console.log("here",entities.decode(""+hexEntities[0]+";")); // <>"&©® 
+
 		return (
 			<div className="gamePlay">
-			<h1>{this.props.id}: Level One </h1>
+			<h1>{this.props.id}: Level One {bLetters}</h1>
 			{this.levelOne()}
+			
 			<a  className="back" href="/#home">Back</a>
 			</div>)
 	}

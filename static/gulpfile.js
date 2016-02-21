@@ -11,6 +11,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var assign = require('lodash.assign');
 var concat = require('gulp-concat-sourcemap');
 var fs = require('fs');
+var htmlEntities = require('html-entities');
 var exec = require('child_process').exec;
 var reactify = require('reactify');
 var col = require("gulp-util").colors;
