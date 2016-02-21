@@ -64,12 +64,13 @@ module.exports = React.createClass({
 					<div className="levelOne_imgHolder">
 						{images}
 					</div>
-					// <img src={""+this.state.currentCard.img}/>
-					<p>{this.state.currentCard.english}</p>
-					<p>{this.state.currentCard.bangla}</p>
-					<input type="text" placeholder="type bangla" onKeyPress={this.getInput}
-						id={this.state.currentCard.english}>
-					</input>
+					<div className="levelOne_textHolder">
+						<p><em>Enlish: </em> {this.state.currentCard.english}</p>
+						<p><em>Bangla: </em>{this.state.currentCard.bangla}</p>
+						<input type="text" placeholder="type bangla" onKeyPress={this.getInput}
+							id={this.state.currentCard.english}>
+						</input>
+					</div>
 				</div>)
 			}
 			
@@ -80,6 +81,8 @@ module.exports = React.createClass({
 		//get input 
 		if ( e.which === 13 ) {
 			var input = e.target.value
+			input = input.toLowerCase();
+			e.target.value = ""
 			//if input matches english
 			if (input === this.state.currentCard.bangla) {
 				var i = this.state.index;

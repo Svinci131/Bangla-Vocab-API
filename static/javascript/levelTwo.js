@@ -14,6 +14,7 @@ module.exports = React.createClass({
 			data: list,
 			currentCard: null,
 			Index: null,
+			showHint: false
 		}
 	},
 	componentDidMount:function () {
@@ -34,6 +35,9 @@ module.exports = React.createClass({
 				console.log(words)
 			});
 	},
+	onClick:function () {
+		this.setState({ showHint: true });
+	},
 	//Draw card
 	levelTwo: function() {
 
@@ -44,12 +48,15 @@ module.exports = React.createClass({
 			}
 			else {
 			return (
-				<div>
-					<p>{this.state.currentCard.bangla}</p>
-					<input type="text" placeholder="Type English" onKeyPress={this.getInput}
-						id={this.state.currentCard.english}>
-					</input>
-					<button className="hint">hint</button>
+				<div className="levelTwo_word">
+					<div className="levelTwo_textHolder">
+						<p><em>Bangla: </em>{this.state.currentCard.bangla}</p>
+						{ this.state.showHint ? <Hint data={this.state.currentCard}/> : null }
+						<input type="text" placeholder="Type English" onKeyPress={this.getInput}
+							id={this.state.currentCard.english}>
+						</input>
+						<button onClick={this.onClick} className="hint">hint</button>
+					</div>
 				</div>)
 			}
 		}
@@ -77,9 +84,20 @@ module.exports = React.createClass({
 
 	render: function() {
 		return (
-			<div>
-			<h1>{this.props.id} </h1>
+			<div className="gamePlay">
+			<h1>{this.props.id}: levelOne </h1>
+			<h4><em> Read the Bangla and enter English</em></h4>
 			{this.levelTwo()}
 			</div>)
 	}
 }); 
+
+var Hint = React.createClass({
+    render: function() {
+        return (
+            <div id="results" className="search-results">
+                {this.props.data.english}
+            </div>
+        );
+    }
+});
