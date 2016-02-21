@@ -3,6 +3,7 @@ var Entities = require('html-entities').AllHtmlEntities;
 
 module.exports = React.createClass({
 	convertFromHex: function () {
+		console.log( this.props.data )
 		var hexEntities = this.props.data.bLetters; 
 		hexEntities = hexEntities.split(";");
 		hexEntities = hexEntities.slice(0, hexEntities.length-1)
@@ -15,14 +16,14 @@ module.exports = React.createClass({
 
  		var bLetters = arr.join(" ")
 
- 		return (<p>{bLetters}</p>)
+ 		return (bLetters)
 
 	},
     render: function() {
         return (
-            <div id="results" className="search-results">
+            <p>
                 {this.convertFromHex()}
-            </div>
+            </p>
         );
     }
 });

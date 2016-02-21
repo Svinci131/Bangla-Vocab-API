@@ -27,6 +27,7 @@ module.exports = React.createClass({
 	getRandom:function (){
 		var listLength = (this.state.data.length)-1; 
 			var index =	Math.floor(Math.random()*(listLength));
+			console.log( this.state.data[ index ])
 			this.setState({
 				currentCard: this.state.data[index], 
 				Index:index
@@ -40,6 +41,7 @@ module.exports = React.createClass({
 	},
 	//Draw Current Card
 	levelOne: function() {
+		console.log( this.state )
 		if (this.state.currentCard !== null) {
 			if (this.state.data.length === 0) {
 				return (<a href={"#levelTwo/"+this.props.id}>Level Two</a>)
@@ -60,6 +62,8 @@ module.exports = React.createClass({
 						<div style={divStyle} className="twoCol_thumbnail"></div>)
 				});
 				// console.log(urls)
+				console.log('!!!')
+				// console.log( currentCard );
 				return (
 				<div className="ui two column centered grid">
 					<div className="column">

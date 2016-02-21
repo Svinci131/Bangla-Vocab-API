@@ -18,7 +18,7 @@ var routes = {
 		);
 	},
 	'/levelOne/:id': function( id ) {
-		console.log( id)
+		console.log( id, imgObj )
 		ReactDOM.render(
 		  <LevelOne id={id} data={imgObj}/>,
 		  document.getElementById('container')
