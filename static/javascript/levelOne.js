@@ -44,9 +44,27 @@ module.exports = React.createClass({
 				return (<a href={"#levelTwo/"+this.props.id}>Level Two</a>)
 			}
 			else {
+				var imgObj = this.state.currentCard.img;
+				var urls = Object.keys(imgObj).reduce(function( arr, currentItem) {
+					arr.push( imgObj[currentItem]);
+					return arr;
+				}, []);
+				urls = urls.splice(0,3)
+				// console.log(images)
+				var images = urls.map (function (el){
+					var divStyle = {
+						backgroundImage: 'url(' + el + ')',
+					}
+					return (
+						<div style={divStyle} className="levelOne_thumbnail"></div>)
+				});
+				console.log(urls)
 				return (
-				<div>
-					<img src={""+this.state.currentCard.img}/>
+				<div className="levelOne_word">
+					<div className="levelOne_imgHolder">
+						{images}
+					</div>
+					// <img src={""+this.state.currentCard.img}/>
 					<p>{this.state.currentCard.english}</p>
 					<p>{this.state.currentCard.bangla}</p>
 					<input type="text" placeholder="type bangla" onKeyPress={this.getInput}
@@ -79,9 +97,8 @@ module.exports = React.createClass({
 
 	render: function() {
 		return (
-			<div>
-			<h1>{this.props.id} </h1>
-			<h2>levelOne</h2>
+			<div className="gamePlay">
+			<h1>{this.props.id}: levelOne </h1>
 			{this.levelOne()}
 			</div>)
 	}

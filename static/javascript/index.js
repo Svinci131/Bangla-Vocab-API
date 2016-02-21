@@ -8,7 +8,7 @@ var LevelTwo = require('./levelTwo');
 var LevelThree = require('./levelThree')
 //two pages home and play 
 
-console.log("foo")
+
 var routes = {
 	'/home': function() {
 		(console.log("foo"))

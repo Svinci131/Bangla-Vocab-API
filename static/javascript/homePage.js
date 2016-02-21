@@ -10,16 +10,16 @@ module.exports = React.createClass({
 	render: function() {
 		var categoryButtons = data.map(function(title) {
 	  		return (
-				<a href={"/#levelOne/"+title} key={title}>
+				<a className="cat__btn" href={"/#levelOne/"+title} key={title}>
 		          {title}
 		        </a>
 
 		      );
 	  	});
 	    return (
-	     <div>
-	  		<h1> Learn Bangla</h1>
-	  		{categoryButtons} 
+	     <div className='cat'>
+	  		<h1 className='cat__title'>Learn Bangla</h1>
+	  		<div className='cat__btnHolder'>{categoryButtons}</div> 
 	  		
 	  	</div>
 		);
