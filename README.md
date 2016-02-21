@@ -43,7 +43,6 @@ Step Two- Image Object
 
 	To Do: 
 		1. Download all the images
-		2. Get three or four images
 
 Step Three-
 	*TWO "PAGES"- Home and game play 

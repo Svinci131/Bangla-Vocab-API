@@ -31,9 +31,10 @@ var routes = {
 		  document.getElementById('container')
 		);
 	},
-	'/levelThree': function() {
+	'/levelThree/:id': function(id) {
+		console.log(id)
 		ReactDOM.render(
-		  <LevelThree />,
+		  <LevelThree id={id} data={imgObj}/>,
 		  document.getElementById('container')
 		);
 	}

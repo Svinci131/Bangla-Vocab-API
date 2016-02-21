@@ -1,5 +1,6 @@
 var React = require('react');
 var Router = require('director').Router;
+var Hint = require('./hint');
 
 module.exports = React.createClass({
 	getInitialState: function() {
@@ -36,6 +37,7 @@ module.exports = React.createClass({
 				console.log(words)
 			});
 	},
+	//set hint to true
 	onClick:function () {
 		this.setState({ showHint: true });
 	},
@@ -45,14 +47,14 @@ module.exports = React.createClass({
 		if (this.state.currentCard !== null) {
 			// console.log(this.state.currentCard.english)
 			if (this.state.data.length === 0) {
-				return (<a href="#levelThree">Level Three</a>)
+				return (<a href={"#levelThree/"+this.props.id}>Level Three</a>)
 			}
 			else {
 			return (
 				<div className="levelTwo_word">
 					<div className="levelTwo_textHolder">
 						<p><em>Bangla: </em>{this.state.currentCard.bangla}</p>
-						{ this.state.showHint ? <Hint data={this.state.currentCard}/> : null }
+						{ this.state.showHint ? <Hint data={this.state.currentCard.english}/> : null }
 						<input type="text" placeholder="Type English" onKeyPress={this.getInput}
 							id={this.state.currentCard.english}>
 						</input>
@@ -91,19 +93,11 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<div className="gamePlay">
-			<h1>{this.props.id}: levelOne </h1>
+			<h1>{this.props.id}: levelTwo </h1>
 			<h4><em> Read the Bangla and enter English</em></h4>
 			{this.levelTwo()}
+			<a className="back" href="/#home">Back</a>
 			</div>)
 	}
 }); 
 
-var Hint = React.createClass({
-    render: function() {
-        return (
-            <div id="results" className="search-results">
-                {this.props.data.english}
-            </div>
-        );
-    }
-});

@@ -56,15 +56,15 @@ module.exports = React.createClass({
 						backgroundImage: 'url(' + el + ')',
 					}
 					return (
-						<div style={divStyle} className="levelOne_thumbnail"></div>)
+						<div style={divStyle} className="twoCol_thumbnail"></div>)
 				});
 				// console.log(urls)
 				return (
-				<div className="levelOne_word">
-					<div className="levelOne_imgHolder">
+				<div className="twoCol_wrapper">
+					<div className="twoCol_imgWrapper">
 						{images}
 					</div>
-					<div className="levelOne_textHolder">
+					<div className="twoCol_textWrapper">
 						<p><em>Enlish: </em> {this.state.currentCard.english}</p>
 						<p><em>Bangla: </em>{this.state.currentCard.bangla}</p>
 						<input type="text" placeholder="type bangla" onKeyPress={this.getInput}
@@ -104,8 +104,9 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<div className="gamePlay">
-			<h1>{this.props.id}: levelOne </h1>
+			<h1>{this.props.id}: Level One </h1>
 			{this.levelOne()}
+			<a  className="back" href="/#home">Back</a>
 			</div>)
 	}
 })
