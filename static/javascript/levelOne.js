@@ -68,6 +68,7 @@ module.exports = React.createClass({
 					<div className="twoCol_textWrapper">
 						<p><em>Enlish: </em> {this.state.currentCard.english}</p>
 						<p><em>Bangla: </em>{this.state.currentCard.bangla}</p>
+						<BLetters data={this.state.currentCard} />
 						<input type="text" placeholder="type bangla" onKeyPress={this.getInput}
 							id={this.state.currentCard.english}>
 						</input>
@@ -138,3 +139,30 @@ module.exports = React.createClass({
 			</div>)
 	}
 })
+
+var BLetters = React.createClass({
+	convertFromHex: function () {
+		var hexEntities = this.props.data.bLetters; 
+		hexEntities = hexEntities.split(";");
+		hexEntities = hexEntities.slice(0, hexEntities.length-1)
+		entities = new Entities();
+		var arr = hexEntities.reduce(function(arr, curr){
+ 			var Char = entities.decode(""+curr+";")
+ 			arr.push( Char);
+			return arr;
+		}, []);
+
+ 		var bLetters = arr.join(" ")
+
+ 		return (<p>{bLetters}</p>)
+
+	},
+    render: function() {
+        return (
+            <div id="results" className="search-results">
+                <p>{this.props.data.bLetters}</p>
+                {this.convertFromHex()}
+            </div>
+        );
+    }
+});
