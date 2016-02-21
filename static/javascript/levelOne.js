@@ -34,7 +34,7 @@ module.exports = React.createClass({
 				arr.push( currentItem.english);
 				return arr;
 				}, []);
-				console.log(words)
+				console.log("remaining", words)
 			});
 	},
 	//Draw Current Card
@@ -58,7 +58,7 @@ module.exports = React.createClass({
 					return (
 						<div style={divStyle} className="levelOne_thumbnail"></div>)
 				});
-				console.log(urls)
+				// console.log(urls)
 				return (
 				<div className="levelOne_word">
 					<div className="levelOne_imgHolder">
@@ -94,6 +94,9 @@ module.exports = React.createClass({
 				}, function (){
 					this.getRandom()
 				})
+			}
+			else {
+				this.getRandom()
 			}
 		}
 	},

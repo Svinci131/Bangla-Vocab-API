@@ -26,7 +26,8 @@ module.exports = React.createClass({
 			var index =	Math.floor(Math.random()*(listLength));
 			this.setState({
 				currentCard: this.state.data[index], 
-				Index:index
+				Index:index,
+				showHint: false
 			}, function() {
 				var words = this.state.data.reduce(function( arr, currentItem) {
 				arr.push( currentItem.english);
@@ -78,6 +79,9 @@ module.exports = React.createClass({
 				}, function (){
 					this.getRandom()
 				})
+			}
+			else {
+				this.getRandom()
 			}
 		}
 	},
