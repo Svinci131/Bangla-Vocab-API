@@ -1,4 +1,19 @@
 /* CURRENTLY IN: styles/main.css */
+/*
+semantic new*/
+.main.container {
+    margin-top: 7em;
+}
+#container .image--card {
+	background-size: cover;
+	max-height: 150px;
+	overflow: hidden;
+}
+#container .image--card img {
+	visibility: hidden;
+}
+
+/*semantic new*/
 .hidden {
 	display:none;
 }
@@ -87,3 +102,4 @@
 		flex-wrap:wrap;
 		text-align: left;
 	}
+

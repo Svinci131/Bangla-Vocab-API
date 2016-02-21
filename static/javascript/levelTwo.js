@@ -55,7 +55,8 @@ module.exports = React.createClass({
 				<div className="levelTwo_word">
 					<div className="levelTwo_textHolder">
 						<p><em>Bangla: </em>{this.state.currentCard.bangla}</p>
-						<BLetters data={this.state.currentCard} />
+						
+					<BLetters data={this.state.currentCard} />
 						
 						{ this.state.showHint ? <Hint data={this.state.currentCard.english}/> : null }
 						
