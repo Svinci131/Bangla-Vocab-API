@@ -52,18 +52,19 @@ module.exports = React.createClass({
 			}
 			else {
 			return (
-				<div className="levelTwo_word">
-					<div className="levelTwo_textHolder">
+				<div>
+					<div>
 						<p><em>Bangla: </em>{this.state.currentCard.bangla}</p>
 						
 					<BLetters data={this.state.currentCard} />
 						
 						{ this.state.showHint ? <Hint data={this.state.currentCard.english}/> : null }
 						
-						<input type="text" placeholder="Type English" onKeyPress={this.getInput}
-							id={this.state.currentCard.english}>
-						</input>
-						<button onClick={this.onClick} className="hint">hint</button>
+						<div className="ui input">
+ 						 <input onKeyPress={this.getInput} type="text" placeholder="Enter English" />
+						</div>
+						<button onClick={this.onClick} className="ui right floated button">Hint</button>
+						
 					</div>
 				</div>)
 			}
@@ -97,10 +98,9 @@ module.exports = React.createClass({
 
 	render: function() {
 		return (
-			<div className="gamePlay">
+			<div>
 			<Title id={this.props.id} data={this.props.data}/>
 			{this.levelTwo()}
-			<a className="back" href="/#home">Back</a>
 			</div>)
 	}
 }); 

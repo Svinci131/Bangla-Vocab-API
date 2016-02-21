@@ -69,17 +69,18 @@ module.exports = React.createClass({
 				});
 				// console.log(urls)
 				return (
-				<div className="twoCol_wrapper">
-					<div className="twoCol_imgWrapper">
+				<div className="ui two column centered grid">
+					<div className="column">
 						{images}
 					</div>
-					<div className="twoCol_textWrapper">
+					<div className="column">
 						<p><em>English: </em> {this.state.currentCard.english}</p>
 						{ this.state.showHint ? <Hint data={this.state.currentCard.bangla}/> : null }
-						<input type="text" placeholder="type bangla" onKeyPress={this.getInput}
-							id={this.state.currentCard.bangla}>
-						</input>
-						<button onClick={this.onClick} className="hint">hint</button>
+						<div className="ui input">
+ 						 <input onKeyPress={this.getInput} type="text" placeholder="Enter Bengali Pronuciation" />
+						</div>
+
+						<button onClick={this.onClick} className="hint ui button">hint</button>
 					
 					</div>
 				</div>)
@@ -114,10 +115,9 @@ module.exports = React.createClass({
 
 	render: function() {
 		return (
-			<div className="gamePlay">
+			<div>
 			<Title id={this.props.id} data={this.props.data}/>
 			{this.drawQuestion()}
-			<a className="back" href="/#home">Back</a>
 			</div>)
 	}
 })
