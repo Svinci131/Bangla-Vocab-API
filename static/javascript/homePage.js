@@ -1,10 +1,11 @@
 var React = require('react');
-var imgObj = require('./dataWimagesNEW'); 
+var imgObj = require('./dataWimages_NEW'); 
 var data = Object.keys(imgObj).reduce(function( arr, currentItem) {
 			arr.push( currentItem);
 			return arr;
 	}, []);
 
+console.log(data)
 module.exports = React.createClass({
 	render: function() {
 		var categoryButtons = data.map(function(title) {

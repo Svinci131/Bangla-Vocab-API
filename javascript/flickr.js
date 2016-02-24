@@ -1,4 +1,4 @@
-var obj 		= require('./newdata');
+var obj 		= require('./data');
 var request 	= require("superagent");
 var API_KEY 	= "fe03e6cf12d2f0ad16e81c15cc926317";
 var API_BASE 	= 'https://api.flickr.com/services/rest/';
@@ -7,7 +7,6 @@ var method 		= 'flickr.photos.search',
  		Q       = require('q');
 
 var last;
-
 oLength = 0;
 	
 function objPromise() {
@@ -47,7 +46,7 @@ function objPromise() {
 
 objPromise().then (function(response){
 	console.log(obj)
-	fs.writeFile('dataWimagesNEW2.json', JSON.stringify(obj), function( err ) {
+	fs.writeFile('dataWimagesNEW.json', JSON.stringify(obj), function( err ) {
     	console.log(err);
   	});
 }); 
