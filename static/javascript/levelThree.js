@@ -50,7 +50,7 @@ module.exports = React.createClass({
 	drawQuestion: function() {
 		if (this.state.currentCard !== null) {
 			if (this.state.data.length === 0) {
-				return (<h2> Congrats! Youve </h2> )
+				return (<h2> Congrats! </h2> )
 			}
 			else {
 				var imgObj = this.state.currentCard.img;
