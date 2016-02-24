@@ -16,6 +16,7 @@ var requestPromise = function( url ) {
   var d = Q.defer();
   
   request( url, function( err, response, body ){
+
     if ( err ) {
       d.reject( err );
     }
@@ -33,6 +34,7 @@ requestPromise( url )
   var $ = cheerio.load(body),
       arr = [],
       links = $(".sidebar-menu li a").each(function(idx, el) {
+
       el = $(el);
       if (idx >= 8 && idx<=33){
         // console.log(el.html())
@@ -45,15 +47,15 @@ requestPromise( url )
   return Q.all( arr );
 })
 .then(function(){
-  console.log(obj)
+  // console.log(obj)
 // //   // console.log( 'writing to file...' );
-  // fs.writeFile('newdata.json', JSON.stringify(obj), function( err ) {
-  //   console.log('done!');
-  // });
+  fs.writeFile('data.json', JSON.stringify(obj), function( err ) {
+    console.log('done!');
+  });
     
 })
 .fail(function(err){
-
+  console.log("error")
 });
 
 //runs function requestPromise on URL 
@@ -65,6 +67,7 @@ function fetchData( url ) {
   var d = Q.defer();
 
   requestPromise( url ).then(function(body) {
+
     //console.log( 'Found: ' + url + '\n' );
     var group = url.split("_");
     group = group[group.length-1].split(".")[0]
@@ -73,7 +76,7 @@ function fetchData( url ) {
     var $ = cheerio.load(body),
         word = $(".table tbody").eq(1).children("tr").children("td").each(function (idx, el) { 
                   el = $(el);
-                 
+                  // console.log('test')
                   var english = el.find('img').attr('alt');
                   
                   // console.log("HERE", group, english)
@@ -87,21 +90,26 @@ function fetchData( url ) {
                     
                   //   //sad - সড্
                   //   //circular
+
                   //   //fromhoiteহওইটএ
                   // }
                   if ( !english || !english.length ) {
-                    // var row = $(el.parent("tr")[0]);
-                    // var col = $(row[0]).children("td");
-                    // var english = $(col[0]).find("b").text()
-                    // var bLetters = $(col[1]).find("b").text()
-                    // var bangla = $(col[1]).text()   
-                        // all = bangla.split (" - ")
-                        // bangla = all[0]
-                        // bLetters = all[1];
-                    return;
+                    var row = $(el.parent("tr")[0]);
+                    var col = $(row[0]).children("td");
+                    var english = $(col[0]).find("b").text()
+                    var bLetters = $(col[1]).find("b").text()
+                    var bangla = $(col[1]).text()   
+                        all = bangla.split (" - ")
+                        bangla = all[0]
+                        bLetters = all[1];
+
+                    if (typeof bLetters === "undefined") {
+                      return
+                    }
+                    // return;
                   }
 
-                 
+                  else {
                     var allEIndx = english.length; 
                     var bangla = all.substring (allEIndx)
                     var bLetterIndex = null;
@@ -113,9 +121,8 @@ function fetchData( url ) {
                       }
                     }
                     bangla = bangla.substring (0, bLetterIndex)
-å
-
-                  
+                  }
+                    
 
                   info = { 
                     "english": english,
