@@ -1,0 +1,47 @@
+var p1 = new Promise(function(resolve, reject) {
+  //resolve("Success!");//ends here says Sucess!
+  //make a call when it comes back it just magically knows then it resolves 
+  $.ajax().then(function() {
+  	resolve('success')
+  })
+  // or
+  // reject ("Error!");
+});
+
+when success do all this other stuff 
+p1.then(function(value) {
+  console.log(value); // Success!
+}, function(reason) {
+  console.log(reason); // Error!
+});
+
+
+var p1 = new Promise(function(resolve, reject) {
+  //resolve("Success!");//ends here says Sucess!
+  //make a call when it comes back it just magically knows then it resolves 
+  $.ajax().then(function() {
+  	resolve('success')
+  })
+  // or
+  // reject ("Error!");
+});
+var p2 = 1337;
+var p3 = new Promise(function(resolve, reject) {
+  setTimeout(resolve, 100, "foo");
+}); 
+
+//when they've all been resolved 
+Promise.all([p1, p2, p3]).then(function(values) { 
+	//p1 makes call then resolves
+	//p2 resolved
+	//p3 waits 100 secs then resolves - foo 
+  console.log(values); // [sucess, 1337, "foo"] 
+});
+
+.then(resolve
+
+[1.2.3].forEach (function (num){
+	request(num).then(resolve())
+}) 
+
+

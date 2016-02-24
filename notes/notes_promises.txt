@@ -1,0 +1,215 @@
+var obj 		= require('./data');
+var request 	= require("superagent");
+var API_KEY 	= "fe03e6cf12d2f0ad16e81c15cc926317";
+var API_BASE 	= 'https://api.flickr.com/services/rest/';
+var method 		= 'flickr.photos.search';
+ 		Q       = require('q');
+
+
+//going through each word in each category, 
+//making a call to the flickr api 
+//saving the results as a new key for each word 
+for ( var cat in obj ) {
+	for ( var word in obj[cat] ){
+		//push the words to an array or maybe push word:cat to and array 
+		var wordObj = obj[cat][word]
+		///push all of these search function/results to an array 
+		search(word, wordObj);
+
+	}
+}
+//TEST
+// $.get( 'url', {
+// 	data:1
+// }, function(payload){
+// 	// this gets called once data is back
+// });
+
+// function get(url, data, callback) {
+// 	var xhr = new XMLHTTPRequest();
+// 	xhr.addEventListener('load', function( response ) {
+// 		if ( callback ) { callback( response ); }
+// 	})
+// 	xhr.open( 'GET', url );
+// 	xhr.send();
+// }
+
+// $.get('url', {
+// 	data: 1
+// })
+// .then(function(data){
+// 	// this gets called once data is back
+// })
+// .fail(function(err){
+// 	// this gets called if data has failed to get back
+// })
+
+// function get( url, data ) {
+// 	return new Promise(function(resolve, reject){
+// 		var xhr = new XMLHTTPRequest();
+// 		xhr.addEventListener('load', function(response){
+// 			resolve( response );
+// 		});
+// 		xhr.addEventListener('error', function(err){
+// 			reject( err );
+// 		})
+// 		xhr.open( 'GET', url );
+// 		xhr.send();
+// 	});
+// }
+
+
+
+///define promise obj
+function ajax2( url, type, data, contentType ) {
+	return new Promise(function(resolve, reject){
+		var xhr = new XMLHttpRequest();
+		xhr.addEventListener('load', function(){
+			resolve( this.responseText );
+		});
+		xhr.addEventListener('error', function() {
+			reject(this.responseText);
+		});
+		xhr.open( type || "GET", url );
+
+		if ( contentType ) {
+			xhr.setRequestHeader("Content-type", contentType);
+		}
+		else {
+			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
+		}
+
+		xhr.send( data );
+	});
+}
+
+var ITER = 0;
+function cheater( num, start ) {
+	console.log('starting!', num, start)
+	ajax2('http://faceoff.labs.honey.is/matchup')
+	.then(function(data) { 
+		console.log( JSON.parse(data) ) 
+		var answer = JSON.parse( data ).answer;
+		console.log( answer );
+		return ajax2(
+			'http://faceoff.labs.honey.is/matchup',
+			'POST', 
+			"answer="+answer, 
+			"application/x-www-form-urlencoded; charset=UTF-8"
+		).then(function(data) {
+			console.log( data );
+			if ( typeof start === "undefined" ) {
+				start = 0;
+			}
+			if ( start < num ) {
+				++start;
+				setTimeout(function(){
+					cheater( num, start );
+				}, 250);
+			}
+			else {
+				console.log('DONE');
+			}
+			
+		});
+	})
+}
+
+//when all of these are resolved return object 
+function requestAsPromise( url, queryData ) {
+	return new Promise(function(resolve, reject){
+		request
+			.get( url )
+			.query( queryData )
+			.end(function(err, response){
+				if ( err ) {
+					reject( err );
+					return;
+				}
+
+				resolve( response );
+			});
+	});
+}
+
+
+function search( key, obj ) {
+	requestAsPromise( API_BASE, {
+		method: method,
+		api_key: API_KEY,
+		text: key,
+		format: 'json',
+		nojsoncallback: 1,
+		sort: 'relevance'
+	})
+	.then(function(response){
+		var data = JSON.parse( response.text );
+			data = data.photos.photo; 
+		if (typeof data[5] !== "undefined") {
+			var title = data[5].title;
+			var id = data[5].id;
+			var server = data[5].server;
+			var secret = data[5].secret;
+			var farmID = data[5].farm;
+			var img = 'https://farm'+farmID+'.staticflickr.com/'+server+'/'+id+'_'+secret+'.jpg';
+			var div = "<div style='border: 1px solid black'>"+img+"<p>"+title+"</p><p><em>"+id+"</em></p></div>"
+			
+			if (key === "yellow"){
+				obj["img"] = img
+				console.log(obj.img)
+				//when they're all resolved 
+
+			}
+
+		return new Promise(function(resolve, reject){
+			resolve(obj);
+		});
+	})
+	.then(function(obj){
+		// i'll be here now
+		// this gets called after all that logic above
+	});
+
+
+	request
+	  	.get(API_BASE)
+
+		.query({
+			method: method,
+			api_key: API_KEY,
+			text: key,
+			format: 'json',
+			nojsoncallback: 1,
+			sort: 'relevance'
+		})
+
+		.end(function(err, response){
+
+			if ( err ) {
+				return;
+			}
+			var data = JSON.parse( response.text );
+				data = data.photos.photo; 
+			if (typeof data[5] !== "undefined") {
+				var title = data[5].title;
+				var id = data[5].id;
+				var server = data[5].server;
+				var secret = data[5].secret;
+				var farmID = data[5].farm;
+				var img = 'https://farm'+farmID+'.staticflickr.com/'+server+'/'+id+'_'+secret+'.jpg';
+				var div = "<div style='border: 1px solid black'>"+img+"<p>"+title+"</p><p><em>"+id+"</em></p></div>"
+				
+				if (key === "yellow"){
+					obj["img"] = img
+					console.log(obj.img)
+					//when they're all resolved 
+
+				}
+			  	
+			}
+			//console.log("HERE",word)
+				//console.log(data[0].title)
+		});	
+}
+// obj["colors"]["yellow"]["foo"] ="foo"
+// console.log(obj.colors.yellow.img)
