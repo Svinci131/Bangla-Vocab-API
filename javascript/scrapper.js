@@ -47,9 +47,9 @@ requestPromise( url )
 .then(function(){
   console.log(obj)
 // //   // console.log( 'writing to file...' );
-  fs.writeFile('newdata.json', JSON.stringify(obj), function( err ) {
-    console.log('done!');
-  });
+  // fs.writeFile('newdata.json', JSON.stringify(obj), function( err ) {
+  //   console.log('done!');
+  // });
     
 })
 .fail(function(err){
@@ -71,10 +71,9 @@ function fetchData( url ) {
     
     //there are a lot more groups than we end up with as objects 
     var $ = cheerio.load(body),
-
         word = $(".table tbody").eq(1).children("tr").children("td").each(function (idx, el) { 
                   el = $(el);
-                  
+                 
                   var english = el.find('img').attr('alt');
                   
                   // console.log("HERE", group, english)
@@ -82,7 +81,7 @@ function fetchData( url ) {
                   var bLetters = el.find('b').html();
                   // console.log("01", bLetters)
                   var all = el.text();
-            
+                  var info;
 
                   // if (english !== all){
                     
@@ -91,32 +90,50 @@ function fetchData( url ) {
                   //   //fromhoiteহওইটএ
                   // }
                   if ( !english || !english.length ) {
-                    return;
+                    var row = $(el.parent("tr")[0]);
+                    var col = $(row[0]).children("td");
+                    var english = $(col[0]).find("b").text()
+                    var bangla = $(col[1]).text()   
+                    // console.log("HERE", english, bangla)
+                    info = { 
+                      "english": english,
+                      "type": group, 
+                      "bangla": bangla,
+                      // "bLetters": bLetters,
+                      "index":idx
+                    };
+                    // return;
                   }
 
-                  var allEIndx = english.length; 
-                  var bangla = all.substring (allEIndx)
-                  var bLetterIndex = null;
+                  else {
+                    var allEIndx = english.length; 
+                    var bangla = all.substring (allEIndx)
+                    var bLetterIndex = null;
 
-                  for (var i = 0; i < bangla.length; i++){
-                    if (bangla.charCodeAt(i) > 123){
-                      var bLetterIndex = i; 
-                      break;
+                    for (var i = 0; i < bangla.length; i++){
+                      if (bangla.charCodeAt(i) > 123){
+                        var bLetterIndex = i; 
+                        break;
+                      }
                     }
+                    bangla = bangla.substring (0, bLetterIndex)
+
+                    info = { 
+                      "english": english,
+                      "type": group, 
+                      "bangla": bangla,
+                      "bLetters": bLetters,
+                      "index":idx
+                    };
                   }
-                  bangla = bangla.substring (0, bLetterIndex)
+
+                  
 
                   if ( typeof obj[group] === "undefined") {
                     obj[group] = {};
                   }
 
-                  obj[group][english] = { 
-                    "english": english,
-                    "type": group, 
-                    "bangla": bangla,
-                    "bLetters": bLetters,
-                    "index":idx
-                  };
+                  obj[group][english] = info
       });
       d.resolve();
   });
