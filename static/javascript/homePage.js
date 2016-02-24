@@ -47,7 +47,7 @@ module.exports = React.createClass({
 			      	<img src={image} />
 			      </div>
 			     <div className="content">
-			        <a href={"/#levelOne/"+title} className="header">{title}</a>
+			        <a href={"#levelOne/"+title} className="header">{title}</a>
 			      </div>
 			  	</div>
 		      );
