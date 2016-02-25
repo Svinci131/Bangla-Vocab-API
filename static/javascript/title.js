@@ -12,7 +12,11 @@ module.exports = React.createClass ({
 		return(
 		<h3 className="ui dividing header">
   			{title}
-  	
+  			<div className="ui breadcrumb">
+				  <a className="section">{this.props.score.completed}</a>
+				  <div className="divider"> / </div>
+				  <div className="active section">{this.props.score.total}</div>
+				</div>
 		</h3>)
 	}
 		

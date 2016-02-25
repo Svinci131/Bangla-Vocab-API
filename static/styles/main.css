@@ -23,6 +23,9 @@ semantic new*/
 .container {
 	width:100%;
 }
+.ui.breadcrumb {
+	float: right;
+}
 .ui.progress .bar {
 
 }

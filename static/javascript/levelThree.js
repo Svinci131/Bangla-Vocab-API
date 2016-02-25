@@ -19,7 +19,10 @@ module.exports = React.createClass({
 			data: list,
 			currentCard: null,
 			Index: null,
-			showHint: false
+			showHint: false,
+			score: { total: list.length,
+					  completed: 0
+					}
 		}
 	},
 	
@@ -99,10 +102,15 @@ module.exports = React.createClass({
 			if (input === this.state.currentCard.bangla.toLowerCase()) {
 				var i = this.state.index;
 				var oldList = this.state.data; 
-				oldList.splice(this.state.Index, 1)
+				oldList.splice(this.state.Index, 1);
+				var newScore = this.state.score.completed + 1;
+				var total = this.state.score.total;
 				// console.log(oldList.length)
 				this.setState ({
-					data: oldList
+					data: oldList,
+					score: { total: total,
+					  		 completed: newScore
+					},
 				}, function (){
 					this.getRandom()
 				})
@@ -116,7 +124,7 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<div>
-			<Title id={this.props.id} data={this.props.data}/>
+			<Title id={this.props.id} score={this.state.score} data={this.props.data}/>
 			{this.drawQuestion()}
 			</div>)
 	}
