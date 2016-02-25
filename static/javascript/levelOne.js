@@ -15,10 +15,12 @@ module.exports = React.createClass({
 		return {
 			//Get the data object for that category - save as an array 
 			data: list,
-			length: list.length,
+			score: { total: list.length,
+					  completed: 0
+					},
 			currentCard: null,
 			Index: null,
-			completed: 0
+			
 		}
 	},
 	
@@ -97,12 +99,14 @@ module.exports = React.createClass({
 				var oldList = this.state.data; 
 				oldList.splice(this.state.Index, 1);
 				
-				var newScore = this.state.completed + 1;
-			
+				var newScore = this.state.score.completed + 1;
+				var total = this.state.score.total;
 				// console.log(oldList.length)
 				this.setState ({
 					data: oldList,
-					completed: newScore
+					score: { total: total,
+					  		  completed: newScore
+					},
 				}, function () {
 					this.getRandom()
 				})
@@ -114,22 +118,18 @@ module.exports = React.createClass({
 	},
 
 	render: function() {
-		console.log("here", this.state.completed)
+		// console.log("here", this.state.score.total)
 		return (
 			<div>
-				<Title id={this.props.id} data={this.props.data}/>
-				<div className="ui breadcrumb">
-				  <a className="section">{this.state.completed}</a>
-				  <div className="divider"> / </div>
-				  <div className="active section">{this.state.length}</div>
-				</div>
-				
+				<Title id={this.props.id} score={this.state.score} data={this.props.data}/>
 				{this.levelOne()}
 			</div>
 
 			)
 	}
 })
+
+
 
 // <div className="ui indicating progress">
 // 				  <div className="bar"></div>

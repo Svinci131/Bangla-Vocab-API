@@ -14,9 +14,11 @@ module.exports = React.createClass({
 		return {
 			//Get the data object for that category - save as an array 
 			data: list,
+			length: list.length,
 			currentCard: null,
 			Index: null,
-			showHint: false
+			showHint: false,
+			completed: 0
 		}
 	},
 	componentDidMount:function () {
@@ -83,9 +85,11 @@ module.exports = React.createClass({
 				var i = this.state.index;
 				var oldList = this.state.data; 
 				oldList.splice(this.state.Index, 1)
+				var newScore = this.state.completed + 1;
 				// console.log(oldList.length)
 				this.setState ({
-					data: oldList
+					data: oldList,
+					completed: newScore
 				}, function (){
 					this.getRandom()
 				})
@@ -100,6 +104,11 @@ module.exports = React.createClass({
 		return (
 			<div>
 			<Title id={this.props.id} data={this.props.data}/>
+			<div className="ui breadcrumb">
+				  <a className="section">{this.state.completed}</a>
+				  <div className="divider"> / </div>
+				  <div className="active section">{this.state.length}</div>
+			</div>
 			{this.levelTwo()}
 			</div>)
 	}
