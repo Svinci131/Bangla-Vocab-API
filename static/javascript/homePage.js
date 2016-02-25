@@ -8,36 +8,51 @@ var data = Object.keys(imgObj).reduce(function( arr, currentItem) {
 console.log(data)
 module.exports = React.createClass({
 	render: function() {
+		var firstKey;
+		var image;
 		var categoryButtons = data.map(function(title) {
 			
-		
+				
 			if (title === "food") {
-				var firstKey = (Object.keys(imgObj[title])[1]);
-				var image = imgObj[title][firstKey].img["03"];
+				 firstKey = (Object.keys(imgObj[title])[1]);
+				 image = imgObj[title][firstKey].img["03"];
+			}
+			else if (title === "adverbs") {
+				
+				 firstKey = (Object.keys(imgObj[title])[0]);
+				 image = imgObj[title][firstKey].img["01"];
+				 title = "Adverbs of Time"
+			}
+
+			else if (title === "nouns") {
+				console.log(imgObj[title])
+				 firstKey = (Object.keys(imgObj[title])[1]);
+				 image = imgObj[title][firstKey].img["01"];
+				 title = "Body II"
 			}
 			else if (title === "colors") {
-				var firstKey = (Object.keys(imgObj[title])[0]);
-				var image = imgObj[title][firstKey].img["04"];
+				 firstKey = (Object.keys(imgObj[title])[0]);
+				 image = imgObj[title][firstKey].img["04"];
 			}
 			else if (title === "numbers") {
-				var firstKey = (Object.keys(imgObj[title])[0]);
-				var image = imgObj[title][firstKey].img["05"];
+				 firstKey = (Object.keys(imgObj[title])[0]);
+				 image = imgObj[title][firstKey].img["05"];
 			}
 			else if (title === "clothes") {
-				var firstKey = (Object.keys(imgObj[title])[3]);
-				var image = imgObj[title][firstKey].img["01"];
+				 firstKey = (Object.keys(imgObj[title])[3]);
+				 image = imgObj[title][firstKey].img["01"];
 			}
 			else if (title === "objects") {
-				var firstKey = (Object.keys(imgObj[title])[0]);
-				var image = imgObj[title][firstKey].img["01"];
+				 firstKey = (Object.keys(imgObj[title])[0]);
+				 image = imgObj[title][firstKey].img["01"];
 			}
 			else if (title === "body") {
-				var firstKey = (Object.keys(imgObj[title])[3]);
-				var image = imgObj[title][firstKey].img["01"];
+				 firstKey = (Object.keys(imgObj[title])[3]);
+				 image = imgObj[title][firstKey].img["01"];
 			}
 			else {
-				var firstKey = (Object.keys(imgObj[title])[3]);
-				var image = imgObj[title][firstKey].img["04"];
+				 firstKey = (Object.keys(imgObj[title])[0]);
+				 image = imgObj[title][firstKey].img["04"];
 			}
 			
 				

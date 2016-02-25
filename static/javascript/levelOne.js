@@ -15,8 +15,10 @@ module.exports = React.createClass({
 		return {
 			//Get the data object for that category - save as an array 
 			data: list,
+			length: list.length,
 			currentCard: null,
 			Index: null,
+			completed: 0
 		}
 	},
 	
@@ -29,7 +31,7 @@ module.exports = React.createClass({
 			var index =	Math.floor(Math.random()*(listLength));
 			console.log( this.state.data[ index ])
 			this.setState({
-				currentCard: this.state.data[index], 
+				currentCard: this.state.data[index],
 				Index:index
 			}, function() {
 				var words = this.state.data.reduce(function( arr, currentItem) {
@@ -93,11 +95,15 @@ module.exports = React.createClass({
 			if (input === this.state.currentCard.bangla.toLowerCase()) {
 				var i = this.state.index;
 				var oldList = this.state.data; 
-				oldList.splice(this.state.Index, 1)
+				oldList.splice(this.state.Index, 1);
+				
+				var newScore = this.state.completed + 1;
+			
 				// console.log(oldList.length)
 				this.setState ({
-					data: oldList
-				}, function (){
+					data: oldList,
+					completed: newScore
+				}, function () {
 					this.getRandom()
 				})
 			}
@@ -108,9 +114,16 @@ module.exports = React.createClass({
 	},
 
 	render: function() {
+		console.log("here", this.state.completed)
 		return (
 			<div>
 				<Title id={this.props.id} data={this.props.data}/>
+				<div className="ui breadcrumb">
+				  <a className="section">{this.state.completed}</a>
+				  <div className="divider"> / </div>
+				  <div className="active section">{this.state.length}</div>
+				</div>
+				
 				{this.levelOne()}
 			</div>
 
@@ -118,6 +131,8 @@ module.exports = React.createClass({
 	}
 })
 
-
+// <div className="ui indicating progress">
+// 				  <div className="bar"></div>
+// 				</div>
 
 		

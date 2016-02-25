@@ -12,7 +12,7 @@ module.exports = React.createClass ({
 		return(
 		<h3 className="ui dividing header">
   			{title}
-  		
+  	
 		</h3>)
 	}
 		
