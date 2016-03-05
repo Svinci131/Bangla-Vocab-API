@@ -1,3 +1,11 @@
+////
+--- only showing photos for nouns 
+--- underlining words in sentances and showing translation of hover 
+--- 
+
+
+
+
 //trying to get the scrapper page to return the obj not right the file
 //then do flickr stuff 
 
@@ -17,8 +25,6 @@ http://www.bdword.com/
 
 //work on rendering words or 
 //work on flickr 
-
-
 
 
 Step One- Vocab Object*compile a list of words as an JSONobject
@@ -70,7 +76,4 @@ Step Three-
 		** show english and have them write bangla 
 		** hint button 
 
-	To Do: 
-
-	replace photos- meat, cheese 
 

@@ -67,9 +67,6 @@ module.exports = React.createClass({
 				});
 
 
-				// console.log(urls)
-				// console.log("obj", this.state.currentCard)
-				// console.log( currentCard );
 				return (
 				<div className="ui two column centered grid">
 					<div className="column">
