@@ -55,7 +55,9 @@ module.exports = React.createClass({
 				 image = imgObj[title][firstKey].img["04"];
 			}
 			
-				
+			// var label = title.split(' ')[0].join('_')
+			// console.log(label)	
+
 			
 	  		return (
 	  			<div className="card">
@@ -63,7 +65,7 @@ module.exports = React.createClass({
 			      	<img src={image} />
 			      </div>
 			     <div className="content">
-			        <a href={"#levelOne/"+title} className="header">{title}</a>
+			        <a href={"#levelOne/"+ title.split(' ')[0].toLowerCase()} className="header">{title}</a>
 			      </div>
 			  	</div>
 		      );
