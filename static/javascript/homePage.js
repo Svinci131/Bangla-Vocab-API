@@ -1,18 +1,16 @@
 var React = require('react');
-var imgObj = require('./dataWimages_NEW'); 
+var imgObj = require('../json/dataWimages_NEW'); 
 var data = Object.keys(imgObj).reduce(function( arr, currentItem) {
 			arr.push( currentItem);
 			return arr;
 	}, []);
 
-console.log(data)
+
 module.exports = React.createClass({
 	render: function() {
 		var firstKey;
 		var image;
 		var categoryButtons = data.map(function(title) {
-			
-				
 			if (title === "food") {
 				 firstKey = (Object.keys(imgObj[title])[1]);
 				 image = imgObj[title][firstKey].img["03"];
@@ -55,10 +53,6 @@ module.exports = React.createClass({
 				 image = imgObj[title][firstKey].img["04"];
 			}
 			
-			// var label = title.split(' ')[0].join('_')
-			// console.log(label)	
-
-			
 	  		return (
 	  			<div className="card">
 			      <div className="image image--card" style={{minHeight: '150px', backgroundImage: 'url('+image+')'}}>
@@ -71,7 +65,7 @@ module.exports = React.createClass({
 		      );
 	  	});
 	    return (
-	     <div className="ui three stackable cards">
+	     <div className="ui three doubling cards">
 	  		{categoryButtons}
 	  	</div>
 		);

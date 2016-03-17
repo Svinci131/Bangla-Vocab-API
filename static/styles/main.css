@@ -1,6 +1,12 @@
 /* CURRENTLY IN: styles/main.css */
-/*
-semantic new*/
+/*alphabet*/
+.alphabet-large {
+	font-size: 3rem;
+}
+#alphabet-container{
+	margin-top: 1em;
+}
+/*semantic new*/
 .main.container {
     margin-top: 7em;
 }
@@ -100,14 +106,11 @@ semantic new*/
 		border: 1px solid black;
 		margin: 0 auto;
 		padding:5px;
-
 	}
-
 	.levelTwo_textHolder {
 		padding:12px;
 		text-transform: capitalize;
 		font-size: 1.5em;
-
 	}
 /*levelone*/
 	.levelThree_word {
@@ -119,4 +122,55 @@ semantic new*/
 		flex-wrap:wrap;
 		text-align: left;
 	}
+/*media queries*/
+.phone-only {
+/*	visibility: hidden;*/
+	display: none!important;
+}
+@media only screen and (max-width: 767px) {
+/*	.ui[class*="four column"].doubling:not(.stackable).grid>.column:not(.row) {
+
+	}*/
+	.alphabet-large-col {
+		padding-top: 0em;
+	}
+	.alphabet-large {
+		font-size: 4rem;
+	}
+}
+/*media queries*/
+@media (max-width: 414px) {
+	.ui.doubling.cards {
+    	display: block!important;
+	}	
+	.ui.three.doubling.cards .card {
+    	width: calc(100% - 2em);
+    }
+    .ui.grid>.column:not(.row) {
+	    width: 100%!important;
+	    margin: 0!important;
+	    box-shadow: none!important;
+	}
+	.main.container {
+  	  margin-top: 4em;
+	}
+	.phone-only {
+		display: flex!important;
+	}
+	.computer-only {
+		visibility: hidden;
+	}
+}
+@media (max-width: 350px) {
+	.twoCol_thumbnail { 
+		height:100px;
+	}
+	.ui.grid>.column:not(.row) {
+	    padding-bottom: .25rem!important; 
+	}
+	.practice-text {
+		 padding-top: .25rem!important; 
+	}
+
+}
 

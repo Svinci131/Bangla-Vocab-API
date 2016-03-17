@@ -72,7 +72,7 @@ module.exports = React.createClass({
 					<div className="column">
 						{images}
 					</div>
-					<div className="column">
+					<div className="column practice-text">
 						<p><em>English: </em> {this.state.currentCard.english}</p>
 						<p><em>Bangla: </em>{this.state.currentCard.bangla}</p>
 						<BLetters data={this.state.currentCard} />
