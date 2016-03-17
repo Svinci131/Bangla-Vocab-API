@@ -1,5 +1,5 @@
 var React = require('react');
-var imgObj = require('./dataWimages_NEW'); 
+var imgObj = require('./json/dataWimages_NEW'); 
 var data = Object.keys(imgObj).reduce(function( arr, currentItem) {
 			arr.push( currentItem);
 			return arr;
