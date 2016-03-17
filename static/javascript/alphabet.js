@@ -1,4 +1,5 @@
 var React = require('react');
+var alphaObj = require('../json/alphabet'); 
 
 module.exports = React.createClass({
 	getInitialState: function () {
@@ -12,15 +13,30 @@ module.exports = React.createClass({
 		}
 	},
 	squares: function () {
+		var boxes = this.state.letters.map(function (el) {
+			console.log(el)
+			return (<div className="column">
+				<h1><b>{el.banglaLetter}</b></h1>
 
+				</div>)
+		});
+		return (boxes)
 	},
 	render: function() {
 		// var squares = this.state.letters.map(function (el) {
-		// 	return (<div className="four wide column">el.bLetter</div>)
+		// 	console.log(el)
+		// 	return (<div className="column">
+		// 		<h1><b>{el.banglaLetter}</b></h1>
+
+		// 		</div>)
 		// });
+		
 
 		 return (
+		 <div>
 	      <h1>Alphabet</h1>
+	      <div id = "letters" className="ui four column centered grid"> {this.squares()}</div>
+	      </div>
 	      
 	   
 		)

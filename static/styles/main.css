@@ -1,4 +1,9 @@
 /* CURRENTLY IN: styles/main.css */
+/*alphabet*/
+#letters>span {
+	display: none;
+}
+/*semantic new*/
 /*semantic new*/
 .main.container {
     margin-top: 7em;

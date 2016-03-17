@@ -1,6 +1,3 @@
-//split- if it's longer than three words
-//loopthrough the and make dictionary calls 
-//if one of them is a verb, return <span underline 
 var React = require('react');
 var imgObj = require('../json/dataWimages_NEW'); 
 var data = Object.keys(imgObj).reduce(function( arr, currentItem) {
@@ -49,7 +46,6 @@ module.exports = React.createClass({
 					</a>
 				</div>
 			</div>
-
 	      </div>
 		)
 	}
