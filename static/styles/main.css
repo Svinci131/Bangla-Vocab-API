@@ -1,9 +1,11 @@
 /* CURRENTLY IN: styles/main.css */
 /*alphabet*/
-#letters>span {
-	display: none;
+.alphabet-large {
+	font-size: 3rem;
 }
-/*semantic new*/
+#alphabet-container{
+	margin-top: 1em;
+}
 /*semantic new*/
 .main.container {
     margin-top: 7em;
@@ -124,6 +126,17 @@
 .phone-only {
 /*	visibility: hidden;*/
 	display: none!important;
+}
+@media only screen and (max-width: 767px) {
+/*	.ui[class*="four column"].doubling:not(.stackable).grid>.column:not(.row) {
+
+	}*/
+	.alphabet-large-col {
+		padding-top: 0em;
+	}
+	.alphabet-large {
+		font-size: 4rem;
+	}
 }
 /*media queries*/
 @media (max-width: 414px) {

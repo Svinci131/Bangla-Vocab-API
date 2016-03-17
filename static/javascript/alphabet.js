@@ -15,28 +15,31 @@ module.exports = React.createClass({
 	squares: function () {
 		var boxes = this.state.letters.map(function (el) {
 			console.log(el)
-			return (<div className="column">
-				<h1><b>{el.banglaLetter}</b></h1>
 
+			return (
+				<div className="column">
+					<div className="ui two column grid">
+						<div className="alphabet-large-col column">
+							<h1 className="alphabet-large">{el.banglaLetter}</h1>
+						</div>
+						<div className="column">
+							<p><i>{el.ital}</i></p>
+							<p><b>{el.eLetter}</b></p>
+						</div>
+					</div>
 				</div>)
 		});
 		return (boxes)
 	},
 	render: function() {
-		// var squares = this.state.letters.map(function (el) {
-		// 	console.log(el)
-		// 	return (<div className="column">
-		// 		<h1><b>{el.banglaLetter}</b></h1>
-
-		// 		</div>)
-		// });
-		
-
 		 return (
-		 <div>
-	      <h1>Alphabet</h1>
-	      <div id = "letters" className="ui four column centered grid"> {this.squares()}</div>
-	      </div>
+		 	<div>
+	      		<h1>Alphabet</h1>
+
+	      		<div id = "alphabet-container" className="ui doubling three column centered grid">
+	       			{this.squares()}
+	       		</div>
+	     	</div>
 	      
 	   
 		)
