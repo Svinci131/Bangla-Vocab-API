@@ -2,6 +2,11 @@
 //loopthrough the and make dictionary calls 
 //if one of them is a verb, return <span underline 
 var React = require('react');
+var imgObj = require('../json/dataWimages_NEW'); 
+var data = Object.keys(imgObj).reduce(function( arr, currentItem) {
+			arr.push( currentItem);
+			return arr;
+	}, []);
 
 module.exports = React.createClass({
 	componentDidMount: function () {
@@ -15,33 +20,26 @@ module.exports = React.createClass({
         if (sidebarVisibility === "initial"){
         	document.getElementById("sidebar").style.visibility = "hidden"
         }
-
     },
 	showSideBar: function () {
 		document.getElementById("sidebar").style.visibility = "initial"
-		console.log("foo")
-		console.log(document.getElementById("sidebar"))
 	},
 	render: function() {
+		var items = data.map(function(title) {
+			return (<a className="item">
+		        {title}
+		      </a>)
+		});
 		 return (
 		  <div>
-
 		 	<div id="sidebar" className="ui simple sidebar inverted vertical menu">
-		      <a className="item">
-		        1
-		      </a>
-		      <a className="item">
-		        2
-		      </a>
-		      <a className="item">
-		        3
-		      </a>
+		      {items}
 	    	</div>
 
 			<div className="ui fixed inverted menu">
 				<div className="ui container">
-					<a onClick={this.showSideBar} className="launch icon item">
-					<i className="content icon"></i>
+					<a onClick={this.showSideBar} className="phone-only launch icon item">
+						<i className="content icon"></i>
 					</a>
 					<a href="#home" className="header item">
 						Learn Bangla বাংলা শেখা

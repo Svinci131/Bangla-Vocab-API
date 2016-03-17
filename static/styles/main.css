@@ -1,9 +1,5 @@
 /* CURRENTLY IN: styles/main.css */
 /*semantic new*/
-.ui.sidebar {
-/*	visibility: initial;*/
-
-}
 .main.container {
     margin-top: 7em;
 }
@@ -103,14 +99,11 @@
 		border: 1px solid black;
 		margin: 0 auto;
 		padding:5px;
-
 	}
-
 	.levelTwo_textHolder {
 		padding:12px;
 		text-transform: capitalize;
 		font-size: 1.5em;
-
 	}
 /*levelone*/
 	.levelThree_word {
@@ -122,6 +115,11 @@
 		flex-wrap:wrap;
 		text-align: left;
 	}
+/*media queries*/
+.phone-only {
+/*	visibility: hidden;*/
+	display: none!important;
+}
 /*media queries*/
 @media (max-width: 414px) {
 	.ui.doubling.cards {
@@ -138,6 +136,12 @@
 	.main.container {
   	  margin-top: 4em;
 	}
+	.phone-only {
+		display: flex!important;
+	}
+	.computer-only {
+		visibility: hidden;
+	}
 }
 @media (max-width: 350px) {
 	.twoCol_thumbnail { 
@@ -149,8 +153,6 @@
 	.practice-text {
 		 padding-top: .25rem!important; 
 	}
-	.computer-only {
-		visibility: hidden;
-	}
+
 }
 

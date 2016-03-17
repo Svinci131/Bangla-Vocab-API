@@ -5,14 +5,12 @@ var data = Object.keys(imgObj).reduce(function( arr, currentItem) {
 			return arr;
 	}, []);
 
-console.log(data)
+
 module.exports = React.createClass({
 	render: function() {
 		var firstKey;
 		var image;
 		var categoryButtons = data.map(function(title) {
-			
-				
 			if (title === "food") {
 				 firstKey = (Object.keys(imgObj[title])[1]);
 				 image = imgObj[title][firstKey].img["03"];
@@ -54,10 +52,6 @@ module.exports = React.createClass({
 				 firstKey = (Object.keys(imgObj[title])[0]);
 				 image = imgObj[title][firstKey].img["04"];
 			}
-			
-			// var label = title.split(' ')[0].join('_')
-			// console.log(label)	
-
 			
 	  		return (
 	  			<div className="card">
