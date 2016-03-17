@@ -1,11 +1,14 @@
 var Router = require('director').Router;
 var React = require('react');
-var imgObj = require('../json/dataWimages_NEW'); 
 var ReactDOM = require('react-dom');
+var imgObj = require('../json/dataWimages_NEW'); 
+var alphaObj = require('../json/alphabet'); 
 var Home = require('./homePage');
 var LevelOne = require('./levelOne');
 var LevelTwo = require('./levelTwo');
-var LevelThree = require('./levelThree')
+var LevelThree = require('./levelThree');
+var Alpha = require('./alphabet');
+var Menu = require('./menu');
 //two pages home and play 
 
 
@@ -14,6 +17,12 @@ var routes = {
 		(console.log("foo"))
 		ReactDOM.render(
 		  <Home />,
+		  document.getElementById('container')
+		);
+	},
+	'/alphabet': function() {
+		ReactDOM.render(
+		  <Alpha data={alphaObj}/>,
 		  document.getElementById('container')
 		);
 	},
@@ -37,10 +46,16 @@ var routes = {
 		  <LevelThree id={id} data={imgObj}/>,
 		  document.getElementById('container')
 		);
-	}
+	},	
 }
+
 
 // console.log( routes, Router);
 
 var router = Router( routes );
 router.init('/home');
+
+ReactDOM.render(
+	<Menu />,
+	document.getElementById('menu')
+);

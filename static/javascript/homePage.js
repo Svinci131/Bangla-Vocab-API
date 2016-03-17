@@ -1,5 +1,5 @@
 var React = require('react');
-var imgObj = require('./json/dataWimages_NEW'); 
+var imgObj = require('../json/dataWimages_NEW'); 
 var data = Object.keys(imgObj).reduce(function( arr, currentItem) {
 			arr.push( currentItem);
 			return arr;
@@ -71,7 +71,7 @@ module.exports = React.createClass({
 		      );
 	  	});
 	    return (
-	     <div className="ui three stackable cards">
+	     <div className="ui three doubling cards">
 	  		{categoryButtons}
 	  	</div>
 		);
