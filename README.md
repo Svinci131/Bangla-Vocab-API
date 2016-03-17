@@ -4,7 +4,9 @@
 --- 
 
 
-
+links; url="https://en.wikibooks.org/wiki/Bengali/Sounds"
+      http://www.lexilogos.com/keyboard/bengali.htm
+      http://mylanguages.org/bengali_alphabet.php
 
 //trying to get the scrapper page to return the obj not right the file
 //then do flickr stuff 
