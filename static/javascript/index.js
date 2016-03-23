@@ -14,7 +14,6 @@ var Menu = require('./menu');
 
 var routes = {
 	'/home': function() {
-		(console.log("foo"))
 		ReactDOM.render(
 		  <Home />,
 		  document.getElementById('container')
@@ -27,14 +26,12 @@ var routes = {
 		);
 	},
 	'/levelOne/:id': function( id ) {
-		console.log( id, imgObj )
 		ReactDOM.render(
 		  <LevelOne id={id} data={imgObj}/>,
 		  document.getElementById('container')
 		);
 	},
 	'/levelTwo/:id': function(id) {
-		console.log( id )
 		ReactDOM.render(
 		  <LevelTwo id={id} data={imgObj}/>,
 		  document.getElementById('container')
@@ -42,6 +39,7 @@ var routes = {
 	},
 	'/levelThree/:id': function(id) {
 		console.log(id)
+	
 		ReactDOM.render(
 		  <LevelThree id={id} data={imgObj}/>,
 		  document.getElementById('container')
@@ -55,7 +53,8 @@ var routes = {
 var router = Router( routes );
 router.init('/home');
 
-ReactDOM.render(
-	<Menu />,
-	document.getElementById('menu')
-);
+	ReactDOM.render(
+			<Menu />,
+			document.getElementById('menu')
+		);
+
