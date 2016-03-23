@@ -23,7 +23,7 @@ module.exports = React.createClass({
 	},
 	render: function() {
 		var items = data.map(function(title) {
-			return (<a className="item">
+			return (<a href={"#levelOne/"+ title.split(' ')[0].toLowerCase()} className="item">
 		        {title}
 		      </a>)
 		});

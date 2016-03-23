@@ -3,8 +3,7 @@ var BLetters = require('./bLetters');
 var Title = require('./title');
 
 module.exports = React.createClass({
-	//Get the data object for that category - save as an array 
-	//set state for object arr and current card
+	
 	getInitialState: function() {
 		var category = this.props.data[this.props.id];
 		var list = Object.keys(category).reduce(function(arr, currentItem) {
