@@ -63,6 +63,10 @@ Step Three-
 		** show english and have them write bangla 
 		** hint button 
 
+	* alphabet
+		** seperate consonants and vowels
+		** add audio
+		
 Step Four- HOVER FEATURE: 
 	//split- if it's longer than three words
 	//loopthrough the and make dictionary calls 
@@ -70,4 +74,5 @@ Step Four- HOVER FEATURE:
 
 Step Five- Audio: 
 	http://www.shabdkosh.com/bn/translate?e=cheese&l=bn
+
 	
