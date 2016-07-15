@@ -1,12 +1,12 @@
-function flattenPromiseDictionaryObj (obj) {
+var obj = require('../static/json/dataWImages');
+
+//refactor this out for growth
+function flattenPromiseDictionaryObj (obj, cb) {
 	var arr = [];
 	for (cat in obj) {
 			for (word in obj[cat]) {
-				var wordObj = obj[cat][word]
-				arr.push({
-					word: word,
-					wordObj: wordObj
-					});
+				var el = cb.apply(null, cat, word, obj);
+				arr.push(el);
 		}
 	}
 	return arr;

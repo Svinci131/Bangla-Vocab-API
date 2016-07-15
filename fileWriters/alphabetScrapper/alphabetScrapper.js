@@ -2,10 +2,8 @@ var request = require("request"),
     cheerio = require("cheerio"),
     alphabet = {},
     fs = require("fs"),
-    url = "http://learn101.org/bengali_alphabet.php";
-
-
-var requestPromise = promisifyRequest;
+    url = "http://learn101.org/bengali_alphabet.php",
+    requestPromise = promisifyRequest;
 
 requestPromise( url )
 .then(function(body){

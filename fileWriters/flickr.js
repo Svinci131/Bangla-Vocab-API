@@ -9,7 +9,7 @@ var method 		= 'flickr.photos.search',
 var last;
 oLength = 0;
 
-//()=>arr
+//()=>arr ** move into utilities file
 function flattenPromiseDictionaryObj () {
 	var arr = [];
 	for (cat in obj) {
