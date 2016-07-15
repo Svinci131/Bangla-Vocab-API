@@ -3,16 +3,6 @@ var request = require("request"),
     alphabet = {},
     fs = require("fs"),
 url = "http://learn101.org/bengali_alphabet.php"
-//url = "http://mylanguages.org/bengali_alphabet.php"
-    // console.log(alphabet)
-    // table = $("table").children("tr").each(function (idx, el) { 
-    //        el = $(el);
-    //          console.log("here")
-    //          var b = $(el.children()[0]).text();
-    //          var e = $(el.children()[1]).text();
-    //          var sound = $(el.children()[2]).text();
-    //          console.log(b,e, sound)
-    //      });
 
 var requestPromise = function( url ) {
   return new Promise(function (resolve, reject){

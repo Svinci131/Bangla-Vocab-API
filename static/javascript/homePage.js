@@ -65,7 +65,7 @@ module.exports = React.createClass({
 		      );
 	  	});
 	    return (
-	     <div className="ui three doubling cards">
+	    <div className="ui three doubling cards">
 	  		{categoryButtons}
 	  	</div>
 		);
