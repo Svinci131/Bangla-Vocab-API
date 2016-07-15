@@ -1,7 +1,7 @@
 //http://www.shabdkosh.com/bn/translate?e=cheese&l=bn
 
 var obj = require('./dataWimages');
-var root = "http://www.shabdkosh.com/bn/translate/"
+var rootUrl = "http://www.shabdkosh.com/bn/translate/"
 for (cat in obj) {
   for (word in obj[cat]) {
     var wordObj = obj[cat][word]

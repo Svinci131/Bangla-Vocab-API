@@ -2,20 +2,10 @@ var request = require("request"),
     cheerio = require("cheerio"),
     alphabet = {},
     fs = require("fs"),
-url = "http://learn101.org/bengali_alphabet.php"
+    url = "http://learn101.org/bengali_alphabet.php";
 
-var requestPromise = function( url ) {
-  return new Promise(function (resolve, reject){
-    request( url, function( err, response, body ){
-      if ( err ) {
-        reject( err );
-      }
-      else {
-        resolve( body );
-      }
-    });
-  });
-}
+
+var requestPromise = promisifyRequest;
 
 requestPromise( url )
 .then(function(body){
@@ -35,12 +25,14 @@ requestPromise( url )
                 break;
               }
            }
+
            if (eLetter.length > 0) {
+              //** note to self: should be constructor
               alphabet[idx]= { banglaLetter: bSymbol,
                               ital: ital,
                               eLetter: eLetter,
                               speechSound: speechSound
-                            } 
+                            };
            }
     });
 }).then (function(){
