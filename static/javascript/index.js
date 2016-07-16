@@ -9,8 +9,6 @@ var LevelTwo = require('./levelTwo');
 var LevelThree = require('./levelThree');
 var Alpha = require('./alphabet');
 var Menu = require('./menu');
-//two pages home and play 
-
 
 var routes = {
 	'/home': function() {
