@@ -22,7 +22,7 @@ const routes = require('./routes');
 const users = require ("../db/users");
 const val = require("./auth");
 const AuthCookie = require('hapi-auth-cookie');
-const path = __dirname+"/../static";
+// const path = __dirname+"/../static";
 const inert = require("inert");
 
 server.connection({ port: 3000 });
@@ -32,30 +32,10 @@ server.register(require('inert'), (err) => {
 	    method: 'GET',
 	    path: '/',
 	    handler: function (request, reply) {
-	        reply.file(path+'/index.html');
+	        reply.file('index.html');
 	    }
 	});
-	server.route({
-	    method: 'GET',
-	    path: '/javascript/bundle.js',
-	    handler: function (request, reply) {
-	        reply.file('javascript/bundle.js');
-	    }
-	});
-	server.route({
-	    method: 'GET',
-	    path: '/styles/semantic.min.css',
-	    handler: function (request, reply) {
-	        reply.file('styles/semantic.min.css');
-	    }
-	});
-	server.route({
-	    method: 'GET',
-	    path: '/styles/main.css',
-	    handler: function (request, reply) {
-	        reply.file('styles/main.css');
-	    }
-	});
+
 	server.route(routes);
 
 	server.start((err) => {

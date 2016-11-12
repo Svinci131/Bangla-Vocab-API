@@ -1,3 +1,3 @@
 var user = require('./user');
-
-module.exports = [].concat(user);
+var middleware = require('./middleware')
+module.exports = [].concat(middleware, user);
