@@ -45,7 +45,7 @@ module.exports = React.createClass({
 						Alphabet
 					</a>
 					<a href="#login" className="computer-only item">
-						Login
+						Sign In
 					</a>
 				</div>
 			</div>

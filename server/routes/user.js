@@ -1,3 +1,5 @@
+const users = require ("../../db/users");
+
 module.exports = [
     {
       method: 'GET',
@@ -14,6 +16,7 @@ module.exports = [
     method: ['PUT', 'POST'],
     path: '/users',
     handler: function (request, reply) {
+      console.log(request.payload);
         reply('I did something!');
     }
 	}

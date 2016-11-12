@@ -1,5 +1,5 @@
 var React = require('react');
-var post = require("../utils").makePostRequest;
+var post = require("../utils").makeTestPostRequest;
 
 module.exports = React.createClass({
 	getInitialState: function() {
@@ -26,8 +26,11 @@ module.exports = React.createClass({
 		});
 	},
 	login: function () {
-		console.log(this.state.userName)
-		console.log(this.state.userName)
+		// let data = {
+		// 	name: this.state.userName,
+		// 	pword: this.state.pword
+		// }
+		// post(data, '/users');
 		post();
 		//console.log("here", post)
 	}
