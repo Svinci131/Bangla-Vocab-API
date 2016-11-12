@@ -1,0 +1,24 @@
+///login 
+
+///signup 
+
+//signout 
+
+//level 
+	//put 
+	//update user score on category + level  
+
+//get user score on category + level on all levels at begining
+
+///BACKEND 
+
+//user table
+email | password | first | last | id 
+
+
+//categories 
+cat name | id 
+
+//levels 
+
+level num | catid | user id | user score(optional)

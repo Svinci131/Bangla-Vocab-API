@@ -9,6 +9,7 @@ var LevelTwo = require('./levelTwo');
 var LevelThree = require('./levelThree');
 var Alpha = require('./alphabet');
 var Menu = require('./menu');
+var Login = require('./components/login');
 
 var routes = {
 	'/home': function() {
@@ -36,13 +37,17 @@ var routes = {
 		);
 	},
 	'/levelThree/:id': function(id) {
-		console.log(id)
-	
 		ReactDOM.render(
 		  <LevelThree id={id} data={imgObj}/>,
 		  document.getElementById('container')
 		);
-	},	
+	},
+	'/login': function () {
+		ReactDOM.render(
+		  <Login />,
+		  document.getElementById('container')
+		);
+	}	
 }
 
 

@@ -8,7 +8,6 @@ module.exports = React.createClass ({
 	render:function(){
 		var title = this.titleCase(this.props.id)
 		var titleObj = this.props.data[this.props.id][title];
-		// console.log(titleObj.bLetters)
 		return(
 		<h3 className="ui dividing header">
   			{title}
@@ -21,5 +20,3 @@ module.exports = React.createClass ({
 	}
 		
 });
-
-// <BLetters data={titleObj} />

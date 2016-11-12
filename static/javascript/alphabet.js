@@ -14,7 +14,6 @@ module.exports = React.createClass({
 	},
 	squares: function () {
 		var boxes = this.state.letters.map(function (el) {
-			console.log(el)
 
 			return (
 				<div className="column">

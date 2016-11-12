@@ -1,0 +1,5 @@
+hapi//notes authentication
+
+schemes - a general type of auth (ie basic, digest)
+
+strategies - a pre-configured/named instance of a scheme
