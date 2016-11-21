@@ -1,0 +1,17 @@
+{
+  "connections": [{
+	  "port": 9000,
+      "labels": ["api"]
+   }],
+  "registrations": [
+      {
+        "plugin": {
+          "register": "./core"
+        }
+      },
+      {
+        "plugin": {
+            "register": "inert"
+          }
+      }]
+}

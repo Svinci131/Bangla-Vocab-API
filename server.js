@@ -1,36 +1,32 @@
 'use strict'
 
-// const Config = require('config');
+// const Config = require('./config/default.json');
 const Glue = require('glue');
+const Mongoose = require('mongoose');
 
-// const Mongoose = require('./lib/modules/mongoose');
+Mongoose.connect('mongodb://localhost/test');
 
-const manifest = {
- connections: [{
-	   //"host": "0.0.0.0",
-	  port: 9000,
-      labels: ['api']
-   }],
-  "registrations": [
-      {
-        "plugin": {
-          "register": "./core"
-        }
-      },
-      {
-        "plugin": {
-            "register": "inert"
-          }
-      }]
-};
+let conn = Mongoose.connection;
 
-const glueOptions = {
-    relativeTo: process.cwd() + '/lib/modules'
-  }
-
-Glue.compose(manifest, glueOptions, (err, server) => {
-  server.start(function (err) {
-    if (err) throw err;
-    console.log("starting server");
-  });
+conn.on('error', console.error.bind(console, 'connection error:'));
+conn.once('open', () => {
+  console.log('Database connection established: ' + connectionString);
+  return setUpServer(null, Mongoose);
 });
+
+// // const Mongoose = require('./lib/modules/mongoose');
+
+function setUpServer() {
+
+  const glueOptions = {
+    relativeTo: process.cwd() + '/lib/modules'
+  };
+
+  Glue.compose(Config, glueOptions, (err, server) => {
+    server.start(function (err) {
+      if (err) throw err;
+      console.log("starting server");
+    });
+  });
+
+}
