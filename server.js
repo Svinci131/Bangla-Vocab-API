@@ -1,17 +1,17 @@
 'use strict'
 
-// const Config = require('./config/default.json');
+const Config = require('./config/default.json');
 const Glue = require('glue');
-const Mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-Mongoose.connect('mongodb://localhost/test');
+mongoose.connect("mongodb://localhost:27017/test");
 
-let conn = Mongoose.connection;
+let conn = mongoose.connection;
 
 conn.on('error', console.error.bind(console, 'connection error:'));
 conn.once('open', () => {
-  console.log('Database connection established: ' + connectionString);
-  return setUpServer(null, Mongoose);
+  console.log('Database connection established: ');
+  return setUpServer(null, mongoose);
 });
 
 // // const Mongoose = require('./lib/modules/mongoose');

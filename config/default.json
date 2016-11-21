@@ -13,5 +13,17 @@
         "plugin": {
             "register": "inert"
           }
-      }]
+      },
+      {
+        "plugin": {
+          "register": "hapi-auth-cookie"
+        }
+      }
+      {
+        "plugin": {
+          "register": "bell"
+        }
+      }
+    ]
 }
+
