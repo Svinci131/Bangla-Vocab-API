@@ -3,7 +3,7 @@
 const Config = require('./config/default.json');
 const Glue = require('glue');
 const mongoose = require('mongoose');
-
+const Path = require('path');
 mongoose.connect("mongodb://localhost:27017/test");
 
 let conn = mongoose.connection;
@@ -25,7 +25,7 @@ function setUpServer() {
   Glue.compose(Config, glueOptions, (err, server) => {
     server.start(function (err) {
       if (err) throw err;
-      console.log("starting server", server.info.port);
+      console.log("starting server", server.info.uri);
     });
   });
 

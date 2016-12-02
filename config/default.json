@@ -2,14 +2,14 @@
   "connections": [{
 	  "port": 9000,
       "labels": ["api"]
-   }],
+   }
+ ],
   "registrations": [
       {
         "plugin": {
           "register": "hapi-auth-cookie"
         }
       },
-
       {
         "plugin": {
           "register": "bell"
@@ -20,15 +20,15 @@
           "register": "./auth"
         }
       },
+       {
+        "plugin": {
+            "register": "inert"
+          }
+      },
       {
         "plugin": {
           "register": "./core"
         }
-      },
-      {
-        "plugin": {
-            "register": "inert"
-          }
       }
     ]
 }
