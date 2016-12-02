@@ -6,6 +6,22 @@
   "registrations": [
       {
         "plugin": {
+          "register": "hapi-auth-cookie"
+        }
+      },
+
+      {
+        "plugin": {
+          "register": "bell"
+        }
+      },
+      {
+        "plugin": {
+          "register": "./auth"
+        }
+      },
+      {
+        "plugin": {
           "register": "./core"
         }
       },
@@ -13,16 +29,6 @@
         "plugin": {
             "register": "inert"
           }
-      },
-      {
-        "plugin": {
-          "register": "hapi-auth-cookie"
-        }
-      }
-      {
-        "plugin": {
-          "register": "bell"
-        }
       }
     ]
 }

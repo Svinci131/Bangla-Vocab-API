@@ -25,7 +25,7 @@ function setUpServer() {
   Glue.compose(Config, glueOptions, (err, server) => {
     server.start(function (err) {
       if (err) throw err;
-      console.log("starting server");
+      console.log("starting server", server.info.port);
     });
   });
 

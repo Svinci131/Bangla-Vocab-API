@@ -1,0 +1,6 @@
+{
+  "name": "auth_wrapper",
+  "version": "1.0.0",
+  "main": "./auth.js",
+  "dependencies": {}
+}
